@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html>
+   <!--
+      * Please see the included README.md file for license terms and conditions.
+      -->
+   <head>
+      <title>Bamyc</title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+      <!--
+         * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+         * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+         * For a quick overview of "meta viewport" and @viewport, see this article:
+         *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+         * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+         * Additional useful references include:
+         *   http://www.quirksmode.org/mobile/viewports.html
+         *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+         *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+         -->
+      <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+      <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+      <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+      
+       
+       
+      <link rel="stylesheet" href="css/cart.css">
+      <!--bootstrap-->
+      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <!--custom css-->
+      <link href="css/style.css" rel="stylesheet" type="text/css" />
+      <link href="css/home.css" rel="stylesheet" type="text/css" />
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/app.css">
+      <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
+      <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
+      <link href="css/loginscreen.css" rel="stylesheet" type="text/css" />
+      <link href="css/detailpage.css" rel="stylesheet" type="text/css" />
+      <link href="css/checkout.css" rel="stylesheet" type="text/css" />
+      <link href="css/oderly.css" rel="stylesheet" type="text/css" />
+        <link href="css/oderly.css" rel="stylesheet" type="text/css" />
+       <link rel="stylesheet" href="css/signature-pad.css">
+      <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+      <!-- Place your remote debugging (weinre) script URL here, if it does not work below. -->
+      <!-- Recommended location for your JavaScript libraries -->
+      <!-- These library references (below) are just examples to give you the general idea... -->
+      <!-- <script src="lib/mc/hammer.js"></script> -->
+      <!-- <script src="lib/ft/fastclick.js"></script> -->
+      <!--
+         * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+         * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?  
+         * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+         * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+         --><script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+      <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.js"></script>
+      <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+      <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
+      <script src="cordova.js"></script>
+      <script src="js/app.js"></script>           <!-- for your event code, see README and file comments for details -->
+      <script src="js/init-app.js"></script>      <!-- for your init code, see README and file comments for details -->
+      <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see file for details -->
+      <script src="js/FieldMan.js"></script>
+      <script src="js/camera.js"></script>
+      <script src="js/signature_pad.js"></script>
+      <script src="js/app_Pad.js"></script>
+      <script src="js/location.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+            ProfileLoad();
+            TrackOrder(); 
+            RegistrationArea();
+            RegistrationCountry(); 
+       
+         }); 
+          
+		  (function() {
+        if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            msViewportStyle.appendChild(document.createTextNode("@-ms-viewport{width:auto!important}"));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    })();
+      </script>  
+   </head>
+   <body style="overflow-y: scroll">  
+      <div class="view splitview">
+         <header class="HeaderSection">
+            <a class="menuButton" data-left-menu="left" data-close data-transition="cover" style="float:left"></a>
+            <h1 id="ApplicationTitle">Title</h1>
+            <a data-right-menu="right" id="ellipsis" data-transition="slide" style="float:right" class="userButton"  ><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+               <a id="Refresh" onclick="RefreshDashboard()"   data-transition="slide" style="float:right" class="scan"  ><i class="fa fa-refresh" aria-hidden="true"></i></a>
+              <a id="Scan" onclick="Scan()" style="display:none;"  data-transition="slide" style="float:right" class="scan"  ><i class="fa fa-camera" aria-hidden="true"></i></a>
+              <a id="SaveSignature" onclick="SaveCanvas()" style="display:none;" data-transition="slide" style="float:right" class="scan"  ><i class="fa fa-floppy-o" aria-hidden="true"></i></a> 
+              <a id="new" onclick="newCanvas()" style="display:none;" data-transition="slide"  class="scan"  ><i class="fa fa-eraser" aria-hidden="true"></i></a>  
+             <a id="Delete"  onclick="DeleteProofSignature() "style="display:none;" data-transition="slide"  class="scan"  > <i class="fa fa-trash-o" aria-hidden="true"></i></a> 
+             <!--<a id="Navigation"  onclick="Navigator();" style="display:none;" data-transition="slide"  class="scan"  > <i class="fa fa-location-arrow" aria-hidden="true"></i></a>--> 
+             
+         </header>      
+         <!--This is Container-->  
+         <div class="pages" id="MainPage" >
+            <div class="panel" data-title="Dashboard" id="HomePage" data-selected="true">
+               <div class="clear"></div>
+               
+               <div class="categoriessection" >
+                  <ul  id="Orderly">
+                  </ul>
+               </div>
+               <div class="clear"></div>
+            </div>
+            <div class="panel" data-title="Orders" id="StatusOrders">
+               <div class="clear"></div>
+               <div  id="OrderList">
+                  
+               </div>
+               <div class="clear"></div>
+            </div>
+            <div class="panel" data-title="Orders" id="StatusOrdersProducts">
+               <div class="clear"></div>
+               <div  id="OrderProductList">   
+               </div>
+               <div class="clear"></div> 
+            </div>
+             
+            <div class="panel" data-title="CustomerInfo" id="CustomerInfo">
+
+        <form name='CustomerInfo' id="CustomerInfo" style="margin-top: 34px;">
+             <label>First Name</label>
+            <input type=text class="firstname" id="CustomerInfo_firstname" name="firstname"  >
+             <label>Last Name</label>
+            <input type=text class="lastname" id="CustomerInfo_lastname" name="lastname">
+             <label>Email</label>
+            <input type=text class="email" id="CustomerInfo_email" name="email" >
+             <label>Phone Number</label>
+            <input type=text class="phone" id="CustomerInfo_phone" name="phone" >
+             <label>Address</label>
+            <input type=text class="address" id="CustomerInfo_address" name="address" >
+               <label>Country</label> 
+             <select id="CustomerInfo_country" onchange="RegistrationArea('CustomerInfo_area','CustomerInfo_country')">
+                  <option value="0">Country</option>
+               </select> 
+             <label>Location</label> 
+               <select  id="CustomerInfo_area" >
+                  <option value="0">Location</option>  
+               </select>
+            <input type="button" name="SAVE" style="    background: #0c577b;    color: #fff;    font-size: 15px;" value="SAVE" class="Register" onclick="CustomerInfo_Update()"/>   
+         </form> 
+      </div>
+             
+<div class="panel" data-title="Order Details" id="TrackOrderDetails">
+    <div id="TrackOrderDetailInformationBilling"></div>
+    <div id="TrackOrderDetailInformationShipping"></div>
+    <div class="Productdetails">
+        <div class="Producttitle">
+            <div class="Producttitle"><strong>Product Details</strong>
+            </div> 
+        </div>
+        <div class=ProductsList >
+            <div class="shoppingcartwrapper">
+                <ul id="TrackOrderProductDetails">   
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+            <div class="shippingcarttotal">
+                <ul>
+                <li><strong>Sub Total</strong> <span class="pricecart" id="SubTotalTrackOrder"> AED</span></li>
+                <li class="shippingcharge"><strong>Shipping charges</strong> <span class="pricecart" id="ShippingChargesTrackOrder"> AED</span></li>
+                <li><strong>Grand Total</strong> <span class="pricecart" id="GrandTotalTrackOrder"> AED</span></li>
+                </ul>
+            </div>
+        </div>  
+    <div id="TrackOrderDetailInformationPayment">
+        <div class="Paymentdetails">
+            <div class="Paymenttitle">
+               <div class="Paymenttitle"><strong>Payment Methods</strong>
+               </div>
+            </div>
+            <div class=PaymentMethods>
+               <ul class="method-list">
+                  <li>
+                     <div class="method-name">
+                        <div class="payment-logo">
+                           <img src="http://www.bamyc.com/plugins/Payments.PayInStore/logo.jpg" alt="Pay with Card upon delivery">
+                        </div>
+                        <div class="payment-details">
+                           <input id="paymentmethod_0" type="radio" name="paymentmethod" onclick="PaymentMethodSelect()" value="Payments.PayInStore" checked="checked">
+                           <label for="paymentmethod_0">Pay with Card upon delivery</label>
+                        </div>
+                     </div>
+                  </li>     
+                  <li>
+                     <div class="method-name">
+                        <div class="payment-logo">
+                           <img src="http://www.bamyc.com/plugins/Payments.CashOnDelivery/logo.jpg" alt="Pay with cash upon delivery">
+                        </div>
+                        <div class="payment-details">
+                           <input id="paymentmethod_1" type="radio" onclick="PaymentMethodSelect()" name="paymentmethod" value="Payments.CashOnDelivery">
+                           <label for="paymentmethod_1">Pay with cash upon delivery</label>
+                        </div>
+                     </div>  
+                  </li>
+               </ul>
+            </div>
+         </div>
+    </div>
+ 
+     <div id="Proofer">
+        <div class="Paymentdetails">
+            <div class="Paymenttitle">
+               <div class="Paymenttitle text"><strong>Proof</strong>
+               </div>
+                  <div class="addnew"><a id="PictureProof_Plus" onclick='takepicture()'><i  class="fa fa-plus-circle" aria-hidden="true" ></i></a></div>
+            </div>
+            <div class=PaymentMethods>
+               <ul class="method-list images" id="PictureProof"></ul>
+            </div>
+         </div>
+    </div>
+ 
+      <div id="Signature">
+        <div class="Paymentdetails">
+            <div class="Paymenttitle">
+               <div class="Paymenttitle text"><strong>Signature</strong>
+               </div>
+                <div class="addnew"><a id="SignatureProof_Plus" onclick='Delivered()'><i  class="fa fa-plus-circle" aria-hidden="true" ></i></a></div>
+            </div>
+            <div class=PaymentMethods>
+               <ul class="method-list images" id="PictureSignature"></ul>
+            </div>
+         </div>
+    </div>
+       <br><input Id="StatusUpdateSubmit_Delivery_button" type='button' class="Delivery_button" onclick="StatusUpdateSubmit_Delivery(Selected_OrderId)" value='Confirm'>
+</div>
+             
+   <div class="panel" data-title="Signature" id="signature-pad">
+    <div id="page">
+		
+    <div id="content"><p style="text-align:center">Loading Canvas...</p></div>
+    <div class="footer">
+<!--        <br><input type='button' onclick="onDeviceReady()" value='Submit'  style='background:#fe4e51 ;color:#fff;font-size:100%'>-->
+    </div>
+           
+</div> 
+  </div>
+
+      <div class="panel" data-title="Proof" id="Proof">    
+		  <div class="masthead">
+            <img class="logo" src="images/logo.png"/>
+        </div>
+        <div class="content" id="contentid">
+            <div>
+                <div id="imagecontent" class="hide">
+                    <div id="imagespace">
+                        <img id="slideshowpicid" class="slideshowpic"/>
+                    </div>
+                    <img src="images/Arrow-L.png" class="arrows" id="previousid" onclick="Previous()">
+                    <img src="images/Arrow-R.png" class="arrows" id="nextid" onclick="Next()">
+                    <img src="images/EndShow.png" class="endbutton" onclick="endslideshow()">
+                </div>
+                <img src="images/EmptyBox-Phone.png" id="photoone" />
+                <img src="images/EmptyBox-Phone.png" id="phototwo" />
+                <img src="images/EmptyBox-Phone.png" id="photothree"/>
+            </div>
+            <div class="button" id="buttonid" onclick="takepicture()">Take Picture</div>   
+        </div>
+			 </div>
+             
+             
+             <div class="panel" data-title="Image" id="ImagePopup">
+               <img id="imagedisplay" />
+			 </div>
+             
+           <div class="panel" data-title="OrderList" id="OrderListPage">
+               <div class="shoppingcartwrapper">
+                  <div id="EmptyOrderList" style="display:none;">
+                     <div class="EmptyCartImg">
+                        <img src="images/EmptyOrderList.png" />
+                     </div>
+                     <div class="EmptyCartText">
+                        Your Order List is <strong>Empty</strong>
+                     </div>
+                     <div class="CountinouShopping">
+                        <a href="#HomePage" class="btnShopping" onclick="DashboardEmpty()" >Dashboard</a>  
+                     </div>
+                  </div>
+               </div>
+            </div>
+             
+     <div class="panel" data-title="Network !" id="NoNetwork">
+               <div class="shoppingcartwrapper">
+                  <div id="Emptynetwork" style="display:none;">
+                     <div class="EmptyCartImg">
+                        <img src="images/NoInternet.png" />
+                     </div>
+                     <div class="EmptyCartText">
+                        Check your <strong>Network</strong>
+                     </div>
+                     <div class="CountinouShopping">
+                        <a href="#HomePage" class="btnShopping" onclick="DashboardEmpty()" >Dashboard</a>  
+                     </div>
+                  </div>
+               </div>
+            </div>        
+             
+             
+         </div>
+         <nav id="left" class="totalnav">
+            <div class="view active" id="LoginHide">    
+               <div class="pages leftside">
+                  <div class="panel active" id="navPage1" data-title="Foobar">
+                     <div class="useravatharpanel">
+                        <div class="AvatharOuter">
+                           <div class="avathar">
+                     <a Id="ProfileEdit" href="#CustomerInfo"  onclick="CustomerInformation()"   class="customerinfo edit">
+                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>                     
+                           </div>
+                         </div>
+                        <div class="profilename"> 
+                           <strong Id="ProfileName"></strong>
+                        </div>
+                        <div class="profilemail">
+                           <span Id="ProfileEmail"></span>
+                        </div>
+                     </div>      
+                     <div id="NotloginList"> 
+                        <ul class="list user">
+                           <li><a href="#login" onclick="LoginMenu()" ><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a></li> 
+                        </ul>
+                     </div> 
+                     <div id="LoginList" style="display:none;">
+                        <ul class="list user">
+                           <!--<li>
+                              <a href="#CustomerInfo" onclick="CustomerInformation()" ><i class="fa fa-info" aria-hidden="true"></i>Customer Info</a></li>-->
+                           <li><a href="#Address_CheckoutAddressList" onclick="Address_ShippingAddressList()" ><i class="fa fa-book" aria-hidden="true"></i>Address</a></li>
+                           <li><a href="#ChangePassword"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Change Password</a></li>
+                           <li><a href="#TrackOrder" onclick="TrackOrder()" ><i class="fa fa-truck" aria-hidden="true"></i>Track Order</a></li>
+                           <li><a href="#HomePage" onclick="Logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a></li>
+                        </ul>
+                     </div>
+                       
+                  </div>
+               </div>
+            </div>
+         </nav>
+      </div>
+   </body>
+</html>

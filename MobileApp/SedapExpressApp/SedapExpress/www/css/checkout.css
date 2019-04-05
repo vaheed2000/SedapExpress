@@ -1,0 +1,359 @@
+.shippingtitle {
+    background: #f3f3f3;
+    padding: 6px;
+    font-weight: bold;
+    font-size: 13px;
+        float: left;
+    width: 100%;
+}
+.detailquantity.list {
+float: right !important;
+    text-align: right;
+    margin-right: 2px; 
+}
+.productprice.productoldprice.productdetail.list {
+float: left !important;
+    text-align: left;
+padding-left: 5px;
+}
+.detailquantity.list a {
+float: right !important;
+}
+.detailquantity.list input {
+float: right;
+}
+.Shippingdetails {
+    border: 1px solid #d0d0d0;
+  
+    float: left;
+        width: 100%;
+}
+.ShippingAddress {
+    padding: 6px;
+    float: left;
+    width: 100%;
+}
+.productdetaillist ul {
+width: 98% !important;
+}
+.ShippingAddress strong {
+    float: left;
+    width: 100%;
+}
+.ShippingAddress span {
+    float: left;
+    width: 100%;
+}
+.ShippingAddress.trackorder strong {
+    float: left;
+    width: auto;
+}
+.ShippingAddress.trackorder span {
+    float: left;
+    width: auto;
+    margin-left:10px;
+}
+a.shippingaddresslist {
+    float: right;
+    font-size: 20px;
+    color: #f07b2a;
+    margin-left: 10px;
+} 
+
+.Paymenttitle {
+    background: #f3f3f3;
+    padding: 6px;
+    font-weight: bold; 
+    font-size: 13px;
+        float: left;
+    width: 100%;
+}
+
+.Paymentdetails {
+    border: 1px solid #d0d0d0;
+ 
+    float: left;
+            width: 100%;
+    margin-top: 10px;
+}
+.PaymentMethods {
+    padding: 6px;
+    float: left;
+    width: 100%;
+}
+
+.PaymentMethods ul {
+    float: left;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+.PaymentMethods ul li  {
+    border: 0px;
+    margin-bottom: 0px;
+    padding: 0;
+        float: left;
+    width: 100%
+}
+
+.method-name {
+    float: left;
+    width: 100%;
+}
+.payment-logo {
+    float: left;
+    width: 10%;
+}
+.payment-details {
+    float: left;
+    width: 90%;
+}
+input[type="radio"]:not(.toggle) + label:before {
+           top: 12px;
+    /* left: 150px !important; */
+    height: 20px;
+    width: 20px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 28px;
+    content: " ";
+    float: right;
+    right: 0px !important;
+    left: auto !important;;
+}
+input[type="radio"] + label, input[type="checkbox"] + label {
+    display: inline-block;
+    width: 90%;
+    float: right;
+    position: relative;
+    text-align: left;
+    padding: 13px 0 0 8px;
+    margin-top: 3px;
+    top: -14px;
+    
+    font-size: 13px;
+    color: #000;
+}
+input[type="radio"]:checked + label:before {
+    background-color: #f07b2a;
+    -webkit-transition: background-color 150ms;
+    transition: background-color 150ms;
+}
+
+.Producttitle {
+    background: #f3f3f3;
+    padding: 6px;
+    font-weight: bold;
+    font-size: 13px;
+        float: left;
+    width: 100%;
+}
+
+.Productdetails {
+    border: 1px solid #d0d0d0;
+  
+    float: left;
+        width: 100%;
+    margin-top: 10px;
+}
+.ProductsList {
+    padding: 6px;
+    float: left;
+    width: 100%;
+}
+.brandname {
+    float: left;
+width: auto;
+font-size: 16px;
+color: #a0a0a0;
+font-weight: bold;
+padding-left: 5px;
+padding-right: 5px;
+ 
+ 
+}
+.productdetalimage img {
+padding: 0 !important;
+}
+.productprice.productoldprice.productdetail {
+    float: left !important;
+width: auto !important;
+text-align: left;
+line-height: 21px;
+    
+}
+.productprice.productoldprice span
+{
+font-weight: bold;
+    padding-left: :0px !important;
+}
+.Multiple {
+float: left;
+color: #a0a0a0;
+    font-weight: bold;
+    padding-left: 5px;
+padding-right: 5px;
+}
+.productprice.productoldprice.productdetail.cart {
+width: 59% !important;
+}
+.checkouttotal
+{
+   width: auto !important;
+float: left!important;
+text-align: right;
+color: #686767 !important;
+}
+.shoppingcartwrapper ul {
+    float: left;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.shoppingcartwrapper ul li .productdetalimage {
+    width: 25%;
+    position: relative;
+    padding-right: 10px;
+    padding-top: 0px;
+}
+.shoppingcartwrapper ul li .productdetaillist {
+    float: right;
+    width: 75%;
+    padding: 0px 0px 0px 0px;
+}
+
+.Shippingdetails.addlist {
+    margin-bottom: 10px;
+}
+
+.CheckOut.addaddress {
+    margin-bottom: 9px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
+.topHeader {
+    background: #f3f3f3;
+    padding: 6px;
+} 
+.setdefault
+{
+        background: #00bd2f;
+    color: #fff;
+    font-size: 15px;
+    width: 45%;
+    float: right;
+    padding: 10px;
+}
+.submitbutton
+{
+        background: #f07b2a;
+    color: #fff; 
+    font-size: 15px;
+    width: 94%;
+ text-align: center;
+    padding: 10px;
+    margin-left: 3%; 
+margin-bottom: 10px;
+}
+.submitbuttonfull {
+    background: #f07b2a;
+    color: #fff;
+    font-size: 15px;
+    width: 100%;
+    padding: 10px;
+}
+
+
+
+ 
+
+.item {
+	position: relative;
+	box-sizing: border-box;
+	background: #ffffff;
+}
+
+.item p {
+	border-top: 1px solid #c8c7cc;
+margin: 0px 0px 9px 13px;
+	height: 44px;
+	color: #000000;
+	font-size: 15px;
+	line-height: 44px;
+}
+
+.item:nth-child(1) p {
+	border: 0;
+}
+
+
+input[type="checkbox"] {
+	display: none;	
+}
+
+.toggle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 9px;
+	margin: auto;
+	width: 51px;
+	height: 31px;
+}
+
+.toggle label,
+.toggle i {
+	box-sizing: border-box;
+	display: block;
+	background: #ffffff;
+}
+
+.toggle label {
+	width: 51px;
+	height: 32px;
+	border-radius: 32px; 
+	border: 2px solid #e5e5e5;
+	transition: all 0.30s ease;
+        padding: 0px !important;
+}
+
+.toggle i {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 28px;
+	height: 28px;
+	border-radius: 28px;
+	box-shadow: 0 0 1px 0 rgba(0,0,0, 0.25),
+				0 3px 3px 0 rgba(0,0,0, 0.15);
+	background: #ffffff;
+	transition: all 0.3s cubic-bezier(0.275, -0.450, 0.725, 1.450);
+}
+
+input[type="checkbox"]:active + .toggle i {
+	width: 35px;
+}
+
+input[type="checkbox"]:active + .toggle label,
+input[type="checkbox"]:checked + .toggle label {
+	border: 16px solid #4cd964;
+}
+
+input[type="checkbox"]:checked + .toggle i {
+	left: 21px;
+}
+
+input[type="checkbox"]:checked:active + .toggle label {
+	border: 16px solid #e5e5e5;
+}
+
+input[type="checkbox"]:checked:active + .toggle i {
+	left: 14px;
+}
+.Accept
+{
+    float: left;
+    width: 100%;
+}

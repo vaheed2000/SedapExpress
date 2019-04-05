@@ -1,0 +1,120 @@
+﻿@{
+    Layout = "_ColumnsOne";
+
+    //page class
+    Html.AppendPageCssClassParts("html-home-page");
+}
+<div class="page home-page">
+    <div class="page-body">
+        @await Component.InvokeAsync("TopicBlock", new { systemName = "HomePageText" })
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeCategories })
+        @await Component.InvokeAsync("VendorNavigation")
+        <section class="features16 cid-r2BgaWXSQE" id="features16-1k">
+
+
+
+            <div class="container align-center">
+                <div class="title sub-title col-md-12" style="margin-bottom: 20px;">
+                    <strong>How We Process Your Order</strong>
+                </div>
+
+                <h3 class="pb-5 mbr-section-subtitle mbr-fonts-style mbr-light display-5"><em>with a maximum of 45 minutes of delivery time .....</em></h3>
+                <div class="row media-row">
+
+                    <div class="team-item col-lg-3 col-md-6">
+                        <div class="item-image">
+                            <img src="~/images/order-online-510x660.png" alt="" title="">
+                        </div>
+                        <div class="item-caption py-3">
+                            <div class="item-name px-2">
+                                <p class="mbr-fonts-style display-5">YOU <br>PLACE ORDER&nbsp;</p>
+                            </div>
+                            <div class="item-role px-2">
+                                <p><br><br><br></p>
+                            </div>
+
+                        </div>
+                    </div><div class="team-item col-lg-3 col-md-6">
+                        <div class="item-image">
+                            <img src="~/images/restaurant-order-510x660.png" alt="" title="">
+                        </div>
+                        <div class="item-caption py-3">
+                            <div class="item-name px-2">
+                                <p class="mbr-fonts-style display-5">
+                                    WE CONTACT THE RESTAURANTS
+                                </p>
+                            </div>
+                            <div class="item-role px-2">
+                                <p>This is where you select all the Sedap meals or items<br><br></p>
+                            </div>
+
+                        </div>
+                    </div><div class="team-item col-lg-3 col-md-6">
+                        <div class="item-image">
+                            <img src="~/images/delivery-510x660.png" alt="" title="">
+                        </div>
+                        <div class="item-caption py-3">
+                            <div class="item-name px-2">
+                                <p class="mbr-fonts-style display-5">
+                                    WE DELIVER
+                                </p>
+                            </div>
+                            <div class="item-role px-2">
+                                <p>DELIVERY TIME<br>&nbsp; &nbsp; &nbsp;As per the restaurant's availability, time slots applicable</p>
+                            </div>
+
+                        </div>
+                    </div><div class="team-item col-lg-3 col-md-6">
+                        <div class="item-image">
+                            <img src="~/images/say-sedap-510x660.png" alt="" title="">
+                        </div>
+                        <div class="item-caption py-3">
+                            <div class="item-name px-2">
+                                <p class="mbr-fonts-style display-5">
+                                    YOU SAY seDAAAP
+                                </p>
+                            </div>
+                            <div class="item-role px-2">
+                                <p>Do not forget to share your&nbsp;<br>reviews on our food in any of your social media platform<br><br></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @await Component.InvokeAsync("HomepageCategories")
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeProducts })
+        <section class="features1 cid-r2zh62H6zu" id="features1-c">
+            <div class="container">
+                <div class="row main align-items-center">
+                    <div class="col-md-6 image-element ">
+                        <div class="img-wrap">
+                            <img src="~/images/honey-glazed-menu-1140x761.jpg" alt="" title="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-element">
+                        <div class="text-content">
+
+                            <h2 class="mbr-title pt-2 mbr-fonts-style align-center mbr-white display-2">LunchBox<br>Menu by SedapExpress Kitchen</h2>
+                            <div class="mbr-section-text">
+                                <p class="mbr-text pt-3 mbr-light mbr-fonts-style align-center mbr-white display-7">
+                                    SedapExpress Kitchen main service is in providing lunchboxes to working professionals and general urban foodies. It is a kitchen under SedapExpress marketplace where the same specialises in Northern Indian and Continental Food, SedapExpress Kitchen is owned by a Muslim couple, hence the food is Halal. Till date, SedapExpress Kitchen Food has received many positive and mindblowing reviews for its tasty and reasonable pricing.&nbsp;
+                                </p>
+                            </div>
+                            <div class="mbr-section-btn pt-3 align-center"><a class="btn btn-md btn-white display-4" href="page1.html">Order Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @await Component.InvokeAsync("HomepageProducts")
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeBestSellers })
+        @await Component.InvokeAsync("HomepageBestSellers")
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforeNews })
+        @*@await Component.InvokeAsync("HomepageNews")*@
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBeforePoll })
+        @*@await Component.InvokeAsync("HomepagePolls")*@
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HomePageBottom })
+    </div>
+</div>

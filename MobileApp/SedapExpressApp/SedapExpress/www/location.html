@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <!--
+      * Please see the included README.md file for license terms and conditions.
+      -->
+   <head>
+      <title>Location</title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+      <link href="css/location.css" rel="stylesheet" type="text/css" />
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+      <script src="js/jquery-2.1.4.min.js"></script>
+      <script src="js/bamyc.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function() {
+              LoadCountries("ddlcas");           
+                           });
+            
+      </script>
+   </head>
+   <body>
+      <div class="locationbg">
+         <img src="images/backgroundlocationmap.png" class="locationmap" />
+         <div class="innerlogo"><img src="images/locationlogo.png" /></div>
+         <div class="formsection">
+            <form>
+               <ul>
+                  <li>
+                     <select id="ddlcas" onchange="LoadArea('area','ddlcas')">
+                        <option value="0">Country</option>
+                     </select>
+                  </li>
+                  <li>
+                     <select  id="area">
+                        <option value="0">Location</option>
+                     </select>
+                  </li>
+                  <li><input type="button" value="Submit" onclick="LoadHomePage()" /></li>
+                  <div class="clear"></div>
+               </ul>
+            </form>
+         </div>
+         <div class="bottombuilding">
+            <div class="scooterwrapper"><img src="images/scooter.png" class="scooter" /> </div>
+            <img src="images/road.jpg" class="road" /> 
+         </div>
+         <img src="images/building.png" class="building" />
+      </div>
+   </body>
+</html>

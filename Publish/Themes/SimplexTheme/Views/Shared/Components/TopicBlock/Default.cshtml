@@ -1,0 +1,369 @@
+﻿@model TopicModel
+<style>
+    .topic-html-content {
+        border: 0px solid #ddd !important;
+    }
+</style>
+@if (Model.IsPasswordProtected)
+{
+    <script asp-location="Footer">
+        $(document).ready(function () {
+            $('#button-password-@Model.Id').on('click', function() {
+                var postData = {
+                    id: $("#topic-@Model.Id").val(),
+                    password: $('#password-@Model.Id').val()
+                };
+                addAntiForgeryToken(postData);
+
+                $.ajax({
+                    cache: false,
+                    type: 'POST',
+                    url: '@Url.RouteUrl("TopicAuthenticate")',
+                    data: postData,
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.Authenticated) {
+                            $('#ph-topic-@Model.Id #ph-title-@Model.Id h2').html(data.Title);
+                            if ($('#ph-topic-@Model.Id #ph-title-@Model.Id h2').text().length == 0) {
+                                $('#ph-title-@Model.Id').hide();
+                            }
+                            $('#ph-topic-@Model.Id .topic-block-body').html(data.Body);
+                            $('#ph-password-@Model.Id').hide();
+                            $('#ph-topic-@Model.Id').show();
+                            //we need to re-run the validation plugin after the content is loaded after successful authentication
+                            $.validator.unobtrusive.parse('#ph-topic-@Model.Id');
+                        } else {
+                            $('#password-error-@Model.Id').text(data.Error).fadeIn("slow");
+                            $('#ph-password-@Model.Id #password-@Model.Id').select().focus();
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+
+        $(document).ready(function() {
+            $('#ph-topic-@Model.Id').hide();
+            $('#ph-password-@Model.Id #password-@Model.Id').select().focus();
+        });
+    </script>
+    <div class="topic-password" id="ph-password-@Model.Id">
+        <form asp-route="TopicAuthenticate" method="post">
+            <input asp-for="Id" id="topic-@Model.Id" type="hidden" />
+            <div class="enter-password-title">
+                @T("Topic.EnterPassword")
+            </div>
+            <div class="enter-password-form">
+                <input name="password" type="password" id="password-@(Model.Id)" />
+                <input type="submit" id="button-password-@Model.Id" value="@T("Topic.Button")" class="button-1 topic-password-button" />
+            </div>
+            <div class="password-error" id="password-error-@Model.Id" style="display: none;"></div>
+        </form>
+    </div>
+    <div class="topic-html-content" id="ph-topic-@Model.Id">
+        <div id="ph-title-@Model.Id">
+            <div class="topic-html-content-title">
+                <h2 class="topic-html-content-header">
+                    @Model.Title
+                </h2>
+            </div>
+        </div>
+        <div class="topic-html-content-body">
+            @Html.Raw(Model.Body)
+        </div>
+    </div>
+}
+else
+{
+    <div class="topic-html-content">
+        @if (Model.Id == 6)
+        {
+            <div class="SearchHotelMain col-md-12">
+                <div class="SearchHotelInput col-md-10">
+                    <input id="pac-input" class="controls col-md-12" type="text" placeholder="Search Box">
+                    <a onclick="GetCurrentLocation();" class="CurrentLocation"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                    <div style="display:none;" id="map"></div>
+                </div>
+                <a class="btnFind col-md-2" href="#">Find restaurants</a>
+            </div>
+            <script>
+                // This example requires the Places library. Include the libraries=places
+                // parameter when you first load the API. For example:
+                // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+                var map;
+                var infowindow;
+                var geocoder;
+                function GetCurrentLocation() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        //  center: pyrmont,
+                        zoom: 15
+                    });
+
+                    // Try HTML5 geolocation.
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            var pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
+
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                //  center: pyrmont,
+                                zoom: 15
+                            });
+
+                             var service = new google.maps.places.PlacesService(map);
+                            service.nearbySearch({
+                                location: pos,
+                                radius: 500,
+                                type: ['restaurant']
+                            }, callback);
+
+                            geocoder = new google.maps.Geocoder();
+                            codeLatLng(position.coords.latitude, position.coords.longitude);
+                           
+
+                        }, function () {
+
+                        });
+                    } else {
+                        // Browser doesn't support Geolocation
+
+                    }
+
+                }
+
+                function codeLatLng(lat, lng) {
+
+                    var latlng = new google.maps.LatLng(lat, lng);
+                    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            console.log(results)
+                            if (results[1]) {
+                                //formatted address
+                                $("#pac-input").val(results[0].formatted_address);
+                              //  alert(results[0].formatted_address)
+                                //find country name
+                                for (var i = 0; i < results[0].address_components.length; i++) {
+                                    for (var b = 0; b < results[0].address_components[i].types.length; b++) {
+
+                                        //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
+                                        if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                                            //this is the object you are looking for
+                                            city = results[0].address_components[i];
+                                            break;
+                                        }
+                                    }
+                                }
+                                //city data
+                               // alert(city.short_name + " " + city.long_name)
+
+
+                            } else {
+                                alert("No results found");
+                            }
+                        } else {
+                            alert("Geocoder failed due to: " + status);
+                        }
+                    });
+                }
+                function initMap() {
+                    var pyrmont;//= { lat: 8.5581, lng: 76.8816 };
+
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        //  center: pyrmont,
+                        zoom: 15
+                    });
+
+                    var input = document.getElementById('pac-input');
+                    var searchBox = new google.maps.places.SearchBox(input);
+                    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+                    // Bias the SearchBox results towards current map's viewport.
+                    map.addListener('bounds_changed', function () {
+                        searchBox.setBounds(map.getBounds());
+                    });
+
+                    var markers = [];
+                    // Listen for the event fired when the user selects a prediction and retrieve
+                    // more details for that place.
+                    searchBox.addListener('places_changed', function () {
+                        var places = searchBox.getPlaces();
+                        var pyrmont = { lat: places[0].geometry.location.lat(), lng: places[0].geometry.location.lng() };
+                        infowindow = new google.maps.InfoWindow();
+                        var service = new google.maps.places.PlacesService(map);
+                        service.nearbySearch({
+                            location: pyrmont,
+                            radius: 500,
+                            type: ['restaurant']
+                        }, callback);
+
+
+                       // alert(places);
+                        if (places.length == 0) {
+                            return;
+                        }
+
+                        // Clear out the old markers.
+                        markers.forEach(function (marker) {
+                            marker.setMap(null);
+                        });
+                        markers = [];
+
+                        // For each place, get the icon, name and location.
+                        var bounds = new google.maps.LatLngBounds();
+                        places.forEach(function (place) {
+                            if (!place.geometry) {
+                                console.log("Returned place contains no geometry");
+                                return;
+                            }
+                            var icon = {
+                                url: place.icon,
+                                size: new google.maps.Size(71, 71),
+                                origin: new google.maps.Point(0, 0),
+                                anchor: new google.maps.Point(17, 34),
+                                scaledSize: new google.maps.Size(25, 25)
+                            };
+
+                            // Create a marker for each place.
+                            markers.push(new google.maps.Marker({
+                                map: map,
+                                icon: icon,
+                                title: place.name,
+                                position: place.geometry.location
+                            }));
+
+                            if (place.geometry.viewport) {
+                                // Only geocodes have viewport.
+                                bounds.union(place.geometry.viewport);
+                            } else {
+                                bounds.extend(place.geometry.location);
+                            }
+                        });
+                        map.fitBounds(bounds);
+                    });
+
+
+                }
+
+                function callback(results, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        for (var i = 0; i < results.length; i++) {
+                            createMarker(results[i]);
+                        }
+                    }
+                }
+
+                function createMarker(place) {
+                    var placeLoc = place.geometry.location;
+                    alert(placeLoc);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.setContent(place.name);
+                        infowindow.open(map, this);
+                    });
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBriD9JMo5gR8Ix4uCkNTHyHelHJgYBjbE&libraries=places&callback=initMap" async defer></script>
+
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Title))
+        {
+            <div class="topic-html-content-title panel-heading">
+                <h1>
+                    @Model.Title
+                </h1>
+            </div>
+        }
+        <div class="topic-html-content-body">
+            @Html.Raw(Model.Body)
+        </div>
+    </div>
+
+}
+
+@*<script>
+        // This example adds a search box to a map, using the Google Place Autocomplete
+        // feature. People can enter geographical searches. The search box will return a
+        // pick list containing a mix of places and predicted search terms.
+
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -33.8688, lng: 151.2195 },
+                zoom: 13,
+                mapTypeId: 'roadmap'
+            });
+
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function () {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function () {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function (marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function (place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        }
+
+    </script>*@
+@*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBriD9JMo5gR8Ix4uCkNTHyHelHJgYBjbE&libraries=places&callback=initAutocomplete"
+    async defer></script>*@

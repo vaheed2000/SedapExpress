@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "915744135246",
+    "firebase_url": "https://sedapexpress-219207.firebaseio.com",
+    "project_id": "sedapexpress-219207",
+    "storage_bucket": "sedapexpress-219207.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915744135246:android:44764213a96b394f",
+        "android_client_info": {
+          "package_name": "com.netroxe.sedapexpress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915744135246-l0u6eb77ocjambpdncortojsbiljro0i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVcUh9iKZVDy9-uMakfjtTPeDq97nQgYg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

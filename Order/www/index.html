@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html>
+<!--
+   * Please see the included README.md file for license terms and conditions.
+   -->
+<head>
+    <title>Bamyc</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <!--
+       * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+       * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+       * For a quick overview of "meta viewport" and @viewport, see this article:
+       *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+       * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+       * Additional useful references include:
+       *   http://www.quirksmode.org/mobile/viewports.html
+       *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+       *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+       -->
+    <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+    <style>
+        /* following three (cascaded) are equivalent to above three meta viewport statements */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+        /* see http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport {
+            width: 100vw;
+            min-zoom: 100%;
+            zoom: 100%;
+        }
+
+        @viewport {
+            width: 100vw;
+            min-zoom: 100% zoom: 100%;
+        }
+
+        @-ms-viewport {
+            user-zoom: fixed;
+            min-zoom: 100%;
+        }
+
+        @viewport {
+            user-zoom: fixed;
+            min-zoom: 100%;
+        }
+        /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+    </style>
+    <link rel="stylesheet" href="css/cart.css">
+    <!--bootstrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--custom css-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/home.css" rel="stylesheet" type="text/css" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
+    <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
+    <link href="css/loginscreen.css" rel="stylesheet" type="text/css" />
+    <link href="css/detailpage.css" rel="stylesheet" type="text/css" />
+    <link href="css/checkout.css" rel="stylesheet" type="text/css" />
+    <link href="css/oderly.css" rel="stylesheet" type="text/css" />
+    <link href="css/oderly.css" rel="stylesheet" type="text/css" />
+    <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+    <!-- Place your remote debugging (weinre) script URL here, if it does not work below. -->
+    <!-- Recommended location for your JavaScript libraries -->
+    <!-- These library references (below) are just examples to give you the general idea... -->
+    <!-- <script src="lib/mc/hammer.js"></script> -->
+    <!-- <script src="lib/ft/fastclick.js"></script> -->
+    <!--
+       * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+       * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+       * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+       * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+       -->
+    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>           <!-- for your event code, see README and file comments for details -->
+    <script src="js/init-app.js"></script>      <!-- for your init code, see README and file comments for details -->
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see file for details -->
+    <script src="js/orderly.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            RefreshDashboard();
+            ProfileLoad();
+            TrackOrder();
+            //    RegistrationArea();
+            RegistrationCountry();
+
+        });
+
+
+    </script>
+</head>
+<body>
+    <!--
+       <div id="splashscreen" class='ui-loader heavy'>
+          <img src="img/Splash.png" />
+       </div>
+       -->
+    <div class="view splitview">
+        <header class="HeaderSection">
+            <a class="menuButton" data-left-menu="left" data-close data-transition="cover" style="float:left"></a>
+            <h1 id="ApplicationTitle">Title</h1>
+            <a data-right-menu="right" data-transition="slide" style="float:right" class="userButton"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+            <a id="Refresh" onclick="RefreshDashboard()" data-transition="slide" style="float:right" class="scan"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+            <a id="Scan" onclick="Scan()" style="display:none;visibility:hidden;" data-transition="slide" style="float:right" class="scan"><i class="fa fa-camera" aria-hidden="true"></i></a>
+
+        </header>
+        <!--This is Container-->
+        <div class="pages" id="MainPage">
+            <div class="panel" data-title="Dashboard" id="HomePage" data-selected="true">
+                <div class="clear"></div>
+                <div class="categoriessection">
+                    <ul id="Orderly"></ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="panel" data-title="Orders" id="StatusOrders">
+                <div class="clear"></div>
+                <div id="OrderList">
+
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="panel" data-title="Orders" id="StatusOrdersProducts">
+                <div class="clear"></div>
+                <div id="OrderProductList">
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="panel" data-title="CustomerInfo" id="CustomerInfo">
+                <!--
+                          <div class="registerwrapper">
+                          <span>Customer Information</span>
+
+                          </div>
+                -->
+                <form name='CustomerInfo' id="CustomerInfo" style="margin-top: 34px;">
+                    <label>First Name</label>
+                    <input type=text class="firstname" id="CustomerInfo_firstname" name="firstname">
+                    <label>Last Name</label>
+                    <input type=text class="lastname" id="CustomerInfo_lastname" name="lastname">
+                    <label>Email</label>
+                    <input type=text class="email" id="CustomerInfo_email" name="email">
+                    <label>Phone Number</label>
+                    <input type=text class="phone" id="CustomerInfo_phone" name="phone">
+                    <label>Address</label>
+                    <input type=text class="address" id="CustomerInfo_address" name="address">
+                    <label>Country</label>
+                    <select id="CustomerInfo_country" onchange="RegistrationArea('CustomerInfo_area','CustomerInfo_country')">
+                        <option value="0">Country</option>
+                    </select>
+                    <label>Location</label>
+                    <select id="CustomerInfo_area">
+                        <option value="0">Location</option>
+                    </select>
+                    <input type="button" name="SAVE" style="    background: #fe4e51;    color: #fff;    font-size: 15px;" value="SAVE" class="Register" onclick="CustomerInfo_Update()" />
+                </form>
+            </div>
+            <div class="panel" data-title="Network !" id="NoNetwork">
+                <div class="shoppingcartwrapper">
+                    <div id="Emptynetwork" style="display:none;">
+                        <div class="EmptyCartImg">
+                            <img src="images/NoInternet.png" />
+                        </div>
+                        <div class="EmptyCartText">
+                            Check your <strong>Network</strong>
+                        </div>
+                        <div class="CountinouShopping">
+                            <a href="#HomePage" class="btnShopping" onclick="DashboardEmpty()">Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel" data-title="Network !" id="NoNetwork">
+                <div class="shoppingcartwrapper">
+                    <div id="Emptynetwork" style="display:none;">
+                        <div class="EmptyCartImg">
+                            <img src="images/NoInternet.png" />
+                        </div>
+                        <div class="EmptyCartText">
+                            Check your <strong>Network</strong>
+                        </div>
+                        <div class="CountinouShopping">
+                            <a href="#HomePage" class="btnShopping" onclick="">Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <nav id="left" class="totalnav">
+            <div class="view active" id="LoginHide">
+                <div class="pages leftside">
+                    <div class="panel active" id="navPage1" data-title="Foobar">
+                        <div class="useravatharpanel">
+                            <div class="AvatharOuter">
+                                <div class="avathar">
+                                    <a Id="ProfileEdit" href="#CustomerInfo" onclick="CustomerInformation()" class="customerinfo edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                            <div class="profilename">
+                                <strong Id="ProfileName"></strong>
+                            </div>
+                            <div class="profilemail">
+                                <span Id="ProfileEmail"></span>
+                            </div>
+                        </div>
+                        <div id="NotloginList">
+                            <ul class="list user">
+                                <li><a href="#login" onclick="LoginMenu()"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a></li>
+                            </ul>
+                        </div>
+                        <div id="LoginList" style="display:none;">
+                            <ul class="list user">
+                                <!--<li>
+                                   <a href="#CustomerInfo" onclick="CustomerInformation()" ><i class="fa fa-info" aria-hidden="true"></i>Customer Info</a></li>-->
+                                <li><a href="#Address_CheckoutAddressList" onclick="Address_ShippingAddressList()"><i class="fa fa-book" aria-hidden="true"></i>Address</a></li>
+                                <li><a href="#ChangePassword"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Change Password</a></li>
+                                <li><a href="#TrackOrder" onclick="TrackOrder()"><i class="fa fa-truck" aria-hidden="true"></i>Track Order</a></li>
+                                <li><a href="#HomePage" onclick="Logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a></li>
+                            </ul>
+                        </div>
+                        <!--
+                           <ul class="Userlist">
+                               <li><a href="#main" onclick="$.afui.clearHistory()">Main Page</a></li>
+                               <li><a href="#page2" onclick="$.afui.clearHistory()">Page Two</a></li>
+                           </ul>
+                           -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--
+           <footer class="FooterSection">
+              <a href="#HomePage" class="icon home" onclick="HomePage()" >Home</a>
+              <a href="#PromotionPage"onclick="CategoryProducts(31);" class="icon tag" >Promotions</a>
+              <a href="#RecentlyViewedPage" class="icon clock" onclick="RecentlyViewedProducts()">Recent</a>
+              <a href="#WishlistPage" class="icon heart" id="WishListBadge" onclick="WishListProducts()" >Wishlist</a>
+              <a href="#MyCartPage" class="icon basket" id="CartBadge" onclick="CartProducts()" >MyCart</a>
+           </footer>-->
+    </div>
+</body>
+</html>

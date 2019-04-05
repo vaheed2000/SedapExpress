@@ -1,0 +1,199 @@
+﻿@model IList<VendorAttributeModel>
+@using Nop.Core.Domain.Catalog
+@foreach (var attribute in Model)
+{
+    var controlId = $"vendor_attribute_{attribute.Id}";
+    var textPrompt = attribute.Name;
+
+    <div class="form-group vendor-attributes" id="@(controlId)_Div">
+        <label class="control-label col-sm-2 col-md-2">@textPrompt:</label>
+
+        @switch (attribute.AttributeControlType)
+        {
+            case AttributeControlType.DropdownList:
+                {
+                    <div class="col-sm-5 col-md-5">
+                        <select class="form-control" name="@(controlId)" id="@(controlId)">
+                            @if (!attribute.IsRequired)
+                            {
+                                <option value="0">---</option>
+                            }
+                            @foreach (var attributeValue in attribute.Values)
+                            {
+                                <option selected="@attributeValue.IsPreSelected" value="@attributeValue.Id">@attributeValue.Name</option>
+                            }
+                        </select>
+                    </div>
+                }
+                break;
+            case AttributeControlType.RadioList:
+                {
+                    <ul class="option-list col-sm-5 col-md-5">
+                        @foreach (var attributeValue in attribute.Values)
+                        {
+                            <li>
+                                <input id="@(controlId)_@(attributeValue.Id)" type="radio" name="@(controlId)" value="@attributeValue.Id" checked="@attributeValue.IsPreSelected" />
+                                <label for="@(controlId)_@(attributeValue.Id)">@attributeValue.Name</label>
+                            </li>
+                        }
+                    </ul>
+                }
+                break;
+            case AttributeControlType.Checkboxes:
+            case AttributeControlType.ReadonlyCheckboxes:
+                {
+                    <ul class="option-list col-sm-5 col-md-5">
+                        @foreach (var attributeValue in attribute.Values)
+                        {
+                            <li>
+                                <input id="@(controlId)_@(attributeValue.Id)" type="checkbox" name="@(controlId)" value="@attributeValue.Id" checked="@attributeValue.IsPreSelected" @(attribute.AttributeControlType == AttributeControlType.ReadonlyCheckboxes ? Html.Raw(" disabled=\"disabled\"") : null) />
+                                <label for="@(controlId)_@(attributeValue.Id)">@attributeValue.Name</label>
+                            </li>
+                        }
+                    </ul>
+                }
+                break;
+            case AttributeControlType.TextBox:
+                {
+                    <div class="col-sm-5 col-md-5">
+                        <input name="@(controlId)" type="text" class="textbox form-control" id="@(controlId)" value="@attribute.DefaultValue" />
+                    </div>
+                }
+                break;
+            case AttributeControlType.MultilineTextbox:
+                {
+                    <div class="col-sm-5 col-md-5">
+                        <textarea class="form-control" id="@(controlId)" name="@(controlId)">@attribute.DefaultValue</textarea>
+                    </div>
+                }
+                break;
+            case AttributeControlType.Datepicker:
+            case AttributeControlType.FileUpload:
+            case AttributeControlType.ColorSquares:
+            case AttributeControlType.ImageSquares:
+                {
+                    //not support attribute type
+                }
+                break;
+        }
+        @if (attribute.IsRequired)
+        {
+            <div class="col-sm-3 col-md-3">
+                <nop-required />
+            </div>
+        }
+    </div>
+}
+
+<div id="map"></div>
+<script>
+    // This example requires the Places library. Include the libraries=places
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+    var map;
+    var infowindow;
+
+    function initMap() {
+        var pyrmont;//= { lat: 8.5581, lng: 76.8816 };
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            //  center: pyrmont,
+            zoom: 15
+        });
+
+        var input = document.getElementById('vendor_attribute_2');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function () {
+            searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function () {
+            var places = searchBox.getPlaces();
+            $("#vendor_attribute_3").val("(" + places[0].geometry.location.lat() + ", " + places[0].geometry.location.lng() + ")");
+            var pyrmont = { lat: places[0].geometry.location.lat(), lng: places[0].geometry.location.lng() };
+            infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch({
+                location: pyrmont,
+                radius: 500,
+                type: ['restaurant']
+            }, callback);
+
+
+           
+            if (places.length == 0) {
+                return;
+            }
+
+            // Clear out the old markers.
+            markers.forEach(function (marker) {
+                marker.setMap(null);
+            });
+            markers = [];
+
+            // For each place, get the icon, name and location.
+            var bounds = new google.maps.LatLngBounds();
+            places.forEach(function (place) {
+                if (!place.geometry) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                var icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25)
+                };
+
+                // Create a marker for each place.
+                markers.push(new google.maps.Marker({
+                    map: map,
+                    icon: icon,
+                    title: place.name,
+                    position: place.geometry.location
+                }));
+
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+        });
+
+
+    }
+
+    function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                createMarker(results[i]);
+            }
+        }
+    }
+
+    function createMarker(place) {
+        var placeLoc = place.geometry.location;
+       
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBriD9JMo5gR8Ix4uCkNTHyHelHJgYBjbE&libraries=places&callback=initMap" async defer></script>

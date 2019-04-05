@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Open Sans', sans-serif;
+}
+.clear {
+	clear: both;
+}
+ @media only screen and (max-width:767px) {
+.locationbg {
+	background-color: #23a24d;
+	position: fixed;
+	z-index: -1;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+img.locationmap {
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	top: 10%;
+	text-align: center;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+.innerlogo {
+	float: left;
+	width: 100%;
+	text-align: center;
+	padding: 32px;
+	box-sizing: border-box;
+}
+.innerlogo img {
+	width: 85%;
+}
+.bottombuilding {
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	bottom: 0px;
+}
+img.scooter {
+	position: fixed;
+	bottom: 26px;
+	width: 89%;
+	right: -56px;
+}
+img.road {
+	position: fixed;
+	bottom: 0px;
+	z-index: -1;
+	width: 100%;
+}
+img.building {
+	position: fixed;
+	width: 100%;
+	bottom: 44px;
+	left:0px;
+}
+.scooterwrapper {
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.formsection {
+    float: left;
+    width: 100%;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+form {
+    float: left;
+    width: 100%;
+}
+.formsection ul {
+    float: left;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.formsection ul li {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.formsection ul li select{
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background-image:url(../images/downarrow.png);
+		float: left;
+		width: 100%;
+		padding: 12px;
+		box-sizing: border-box;
+		background-repeat: no-repeat;
+		background-position: 96% center;
+		border-radius: 4px;
+		border: 0px;
+		background-size:4%;
+		font-family: 'Open Sans', sans-serif;
+		outline:none;
+		font-size:12px;
+}
+.formsection input[type="submit"] {
+    float: left;
+    width: 100%;
+    background-color: #00bd2f;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 15px;
+    border-bottom: 3px solid #09721c;
+    border-radius: 4px;
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	outline:none;
+	cursor:pointer;
+	font-family: 'Open Sans', sans-serif;
+}
+     
+     .formsection input[type="button"] {
+    float: left;
+    width: 100%;
+    background-color: #00bd2f;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 15px;
+    border-bottom: 3px solid #09721c;
+    border-radius: 4px;
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	outline:none;
+	cursor:pointer;
+	font-family: 'Open Sans', sans-serif;
+}
+     
+}
+ @media only screen and (min-width:768px) and (max-width:1024px) {
+.locationbg {
+	background-color: #23a24d;
+	position: fixed;
+	z-index: -1;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+}

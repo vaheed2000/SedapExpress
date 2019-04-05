@@ -1,0 +1,15 @@
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\netcoreapp2.1\Nop.Plugin.Tax.FixedOrByCountryStateZip.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\netcoreapp2.1\Nop.Plugin.Tax.FixedOrByCountryStateZip.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\netcoreapp2.1\Nop.Plugin.Tax.FixedOrByCountryStateZip.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\plugin.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\Views\Configure.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\Views\_CountryStateZip.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\Views\_FixedRate.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\Views\_ViewImports.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\logo.jpg
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\Nop.Plugin.Tax.FixedOrByCountryStateZip.deps.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\Nop.Plugin.Tax.FixedOrByCountryStateZip.dll
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Tax.FixedOrByCountryStateZip\Nop.Plugin.Tax.FixedOrByCountryStateZip.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\netcoreapp2.1\Nop.Plugin.Tax.FixedOrByCountryStateZip.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\netcoreapp2.1\Nop.Plugin.Tax.FixedOrByCountryStateZip.dll
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Tax.FixedOrByCountryStateZip\obj\Debug\netcoreapp2.1\Nop.Plugin.Tax.FixedOrByCountryStateZip.pdb

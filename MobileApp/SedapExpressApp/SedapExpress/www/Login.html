@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <title>Untitled Document</title>
+    <link href="css/loginscreen.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!--      <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" /> -->
+    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
+    <script src="js/bamyc.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            CheckCustomerLoginState();
+            UpdateCartCount();
+            UpdateWishlistCount();
+            LoadCategories();
+            CartProducts();
+        });
+    </script>
+</head>
+   <body>
+      <div class="locationbg">
+         <!--     <a data-transition="slide" class="CloseButton icon close"  onclick="HideLoginPanel();"></a>-->
+         <!--<p style="text-align:right;margin-right:25px;"><i class="fa fa-times" aria-hidden="true" onclick="HideLoginPanel()" style="color:white"></i></p>-->
+         <div class="innerlogo"><img src="images/logoNew.png" /></div>
+         <div class="taglineloginscreen">Login to your account</div>
+         <div class="formsection">
+            <form name="login" id="Login">
+               <ul>
+                  <li><input placeholder="Email Id" type="email" id=username /></li>
+                  <li><input placeholder="Password" type="password"  id="passid" /></li>
+                  <li><input type="button" name="loginsubmit" id="loginsubmit" onclick="Login(this.form)" value="Login" /></li>
+                  <div class="clear"></div>
+               </ul>
+            </form>
+         </div>
+         <div class="clear"></div>
+         <!--<div class="forgetpassword"><a href="#ForgetPassword">Forget password?</a></div>-->
+          <div class="OR_Text">OR</div>
+         <div class="registernow"><a  class="register" href="#RegisterTab" onclick="ClearRegisteredData()"><input type="button" value="REGISTER NOW!" /></a></div>
+      </div>
+   </body>
+</html>

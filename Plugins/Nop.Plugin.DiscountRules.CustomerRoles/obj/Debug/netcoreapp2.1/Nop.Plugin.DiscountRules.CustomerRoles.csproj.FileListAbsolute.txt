@@ -1,0 +1,13 @@
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\netcoreapp2.1\Nop.Plugin.DiscountRules.CustomerRoles.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\netcoreapp2.1\Nop.Plugin.DiscountRules.CustomerRoles.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\netcoreapp2.1\Nop.Plugin.DiscountRules.CustomerRoles.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\plugin.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Views\Configure.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Views\_ViewImports.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\logo.jpg
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Nop.Plugin.DiscountRules.CustomerRoles.deps.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Nop.Plugin.DiscountRules.CustomerRoles.dll
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Nop.Plugin.DiscountRules.CustomerRoles.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\netcoreapp2.1\Nop.Plugin.DiscountRules.CustomerRoles.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\netcoreapp2.1\Nop.Plugin.DiscountRules.CustomerRoles.dll
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\netcoreapp2.1\Nop.Plugin.DiscountRules.CustomerRoles.pdb

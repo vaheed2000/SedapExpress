@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	margin: 0px;
+	padding: 0px;
+}
+.clear {
+	clear: both;
+}
+ @media only screen and (max-width:767px) {
+.smartphonewrapper {
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+img.bgsplash {
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+}
+.logo {
+	float: left;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.logo img {
+	width: 42%;
+}
+.splashlady {
+	float: left;
+	width: 100%;
+	position: fixed;
+	bottom: -40px;
+	text-align: center;
+}
+.splashlady img {
+	width: 54%;
+}
+}
+ @media only screen and (min-width:768px) and (max-width:1024px) {
+.smartphonewrapper {
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+img.bgsplash {
+	position: fixed;
+	z-index: -1;
+	width: 100%;
+	bottom: -200px;
+	left: 0px;
+}
+.logo {
+	float: left;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.logo img {
+	width: 42%;
+}
+.splashlady {
+	float: left;
+	width: 100%;
+	position: fixed;
+	bottom:-57px;
+	text-align: center;
+}
+.splashlady img {
+	width: 40%;
+}
+}

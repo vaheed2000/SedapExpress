@@ -1,0 +1,15 @@
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Manual.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Manual.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Manual.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Manual\plugin.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Manual\Views\Configure.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Manual\Views\PaymentInfo.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Manual\Views\_ViewImports.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Manual\logo.jpg
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Manual\Nop.Plugin.Payments.Manual.deps.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Manual\Nop.Plugin.Payments.Manual.dll
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Manual\Nop.Plugin.Payments.Manual.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Manual.csprojAssemblyReference.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Manual.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Manual.dll
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Manual.pdb

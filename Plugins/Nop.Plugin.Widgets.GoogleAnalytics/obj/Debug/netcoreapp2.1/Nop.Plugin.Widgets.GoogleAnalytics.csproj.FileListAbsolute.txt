@@ -1,0 +1,15 @@
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\netcoreapp2.1\Nop.Plugin.Widgets.GoogleAnalytics.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\netcoreapp2.1\Nop.Plugin.Widgets.GoogleAnalytics.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\netcoreapp2.1\Nop.Plugin.Widgets.GoogleAnalytics.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\plugin.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Views\Configure.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Views\PublicInfo.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Views\_ViewImports.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\logo.jpg
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Nop.Plugin.Widgets.GoogleAnalytics.deps.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Nop.Plugin.Widgets.GoogleAnalytics.dll
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Nop.Plugin.Widgets.GoogleAnalytics.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\netcoreapp2.1\Nop.Plugin.Widgets.GoogleAnalytics.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\netcoreapp2.1\Nop.Plugin.Widgets.GoogleAnalytics.dll
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\netcoreapp2.1\Nop.Plugin.Widgets.GoogleAnalytics.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\netcoreapp2.1\Nop.Plugin.Widgets.GoogleAnalytics.csprojAssemblyReference.cache

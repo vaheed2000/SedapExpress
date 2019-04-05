@@ -1,0 +1,13 @@
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Shipping.UPS\obj\Debug\netcoreapp2.1\Nop.Plugin.Shipping.UPS.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Shipping.UPS\obj\Debug\netcoreapp2.1\Nop.Plugin.Shipping.UPS.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Shipping.UPS\obj\Debug\netcoreapp2.1\Nop.Plugin.Shipping.UPS.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Shipping.UPS\plugin.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Shipping.UPS\Views\Configure.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Shipping.UPS\Views\_ViewImports.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Shipping.UPS\logo.jpg
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Shipping.UPS\Nop.Plugin.Shipping.UPS.deps.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Shipping.UPS\Nop.Plugin.Shipping.UPS.dll
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Shipping.UPS\Nop.Plugin.Shipping.UPS.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Shipping.UPS\obj\Debug\netcoreapp2.1\Nop.Plugin.Shipping.UPS.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Shipping.UPS\obj\Debug\netcoreapp2.1\Nop.Plugin.Shipping.UPS.dll
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Shipping.UPS\obj\Debug\netcoreapp2.1\Nop.Plugin.Shipping.UPS.pdb

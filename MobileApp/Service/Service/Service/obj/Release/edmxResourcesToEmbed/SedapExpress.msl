@@ -1,0 +1,728 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SedapExpressModelStoreContainer" CdmEntityContainer="SedapExpressEntities">
+    <FunctionImportMapping FunctionName="SedapExpressModel.Store.fnSplitString" FunctionImportName="fnSplitString">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.fnSplitString_Result">
+          <ScalarProperty Name="splitdata" ColumnName="splitdata" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="SedapExpressModel.Store.nop_splitstring_to_table" FunctionImportName="nop_splitstring_to_table">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.nop_splitstring_to_table_Result">
+          <ScalarProperty Name="data" ColumnName="data" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="SedapExpressModel.Store.Split" FunctionImportName="Split">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.Split_Result">
+          <ScalarProperty Name="Item" ColumnName="Item" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddDeliveryDetails" FunctionName="SedapExpressModel.Store.AddDeliveryDetails" />
+    <FunctionImportMapping FunctionImportName="AddLogOutUser" FunctionName="SedapExpressModel.Store.AddLogOutUser" />
+    <FunctionImportMapping FunctionImportName="AddNewShippingAddress" FunctionName="SedapExpressModel.Store.AddNewShippingAddress" />
+    <FunctionImportMapping FunctionImportName="AddToCartFromWishlist" FunctionName="SedapExpressModel.Store.AddToCartFromWishlist" />
+    <FunctionImportMapping FunctionImportName="AddToWishlist" FunctionName="SedapExpressModel.Store.AddToWishlist" />
+    <FunctionImportMapping FunctionImportName="AddTracking" FunctionName="SedapExpressModel.Store.AddTracking" />
+    <FunctionImportMapping FunctionImportName="AddUserInfo" FunctionName="SedapExpressModel.Store.AddUserInfo" />
+    <FunctionImportMapping FunctionImportName="BestSellingProducts" FunctionName="SedapExpressModel.Store.BestSellingProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.BestSellingProducts_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BestSellingProducts_CartUpdate" FunctionName="SedapExpressModel.Store.BestSellingProducts_CartUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.BestSellingProducts_CartUpdate_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CartAmountTotal" FunctionName="SedapExpressModel.Store.CartAmountTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.CartAmountTotal_Result">
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="Shippingcost" ColumnName="Shippingcost" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CartItemNumberUpdate" FunctionName="SedapExpressModel.Store.CartItemNumberUpdate" />
+    <FunctionImportMapping FunctionImportName="CategoryLoadAllPaged" FunctionName="SedapExpressModel.Store.CategoryLoadAllPaged" />
+    <FunctionImportMapping FunctionImportName="CheckOut" FunctionName="SedapExpressModel.Store.CheckOut" />
+    <FunctionImportMapping FunctionImportName="count_item" FunctionName="SedapExpressModel.Store.count_item" />
+    <FunctionImportMapping FunctionImportName="count_items" FunctionName="SedapExpressModel.Store.count_items" />
+    <FunctionImportMapping FunctionImportName="countitems" FunctionName="SedapExpressModel.Store.countitems" />
+    <FunctionImportMapping FunctionImportName="countproducts" FunctionName="SedapExpressModel.Store.countproducts" />
+    <FunctionImportMapping FunctionImportName="CustomerInfoUpdate" FunctionName="SedapExpressModel.Store.CustomerInfoUpdate" />
+    <FunctionImportMapping FunctionImportName="CustomerLoginRegistration" FunctionName="SedapExpressModel.Store.CustomerLoginRegistration" />
+    <FunctionImportMapping FunctionImportName="CustomerName" FunctionName="SedapExpressModel.Store.CustomerName" />
+    <FunctionImportMapping FunctionImportName="CustomerShippingAddress" FunctionName="SedapExpressModel.Store.CustomerShippingAddress">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.CustomerShippingAddress_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+          <ScalarProperty Name="CustomAttributes" ColumnName="CustomAttributes" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteGuests" FunctionName="SedapExpressModel.Store.DeleteGuests" />
+    <FunctionImportMapping FunctionImportName="DeleteProductFromCart" FunctionName="SedapExpressModel.Store.DeleteProductFromCart" />
+    <FunctionImportMapping FunctionImportName="DeleteProductFromWishlist" FunctionName="SedapExpressModel.Store.DeleteProductFromWishlist" />
+    <FunctionImportMapping FunctionImportName="DeleteProofAndSignature" FunctionName="SedapExpressModel.Store.DeleteProofAndSignature" />
+    <FunctionImportMapping FunctionImportName="DeleteShippingAddressById" FunctionName="SedapExpressModel.Store.DeleteShippingAddressById" />
+    <FunctionImportMapping FunctionImportName="DeliveryOrderStatus" FunctionName="SedapExpressModel.Store.DeliveryOrderStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.DeliveryOrderStatus_Result">
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="StatusCount" ColumnName="StatusCount" />
+          <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+          <ScalarProperty Name="IsUpdateStatus" ColumnName="IsUpdateStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DutyAddUpdate" FunctionName="SedapExpressModel.Store.DutyAddUpdate" />
+    <FunctionImportMapping FunctionImportName="FullText_Disable" FunctionName="SedapExpressModel.Store.FullText_Disable" />
+    <FunctionImportMapping FunctionImportName="FullText_Enable" FunctionName="SedapExpressModel.Store.FullText_Enable" />
+    <FunctionImportMapping FunctionImportName="FullText_IsSupported" FunctionName="SedapExpressModel.Store.FullText_IsSupported" />
+    <FunctionImportMapping FunctionImportName="GetAllAddress" FunctionName="SedapExpressModel.Store.GetAllAddress">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllAddress_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllAreas" FunctionName="SedapExpressModel.Store.GetAllAreas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllAreas_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCartedItems" FunctionName="SedapExpressModel.Store.GetAllCartedItems">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllCartedItems_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCategories" FunctionName="SedapExpressModel.Store.GetAllCategories">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllCategories_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCategoryProducts" FunctionName="SedapExpressModel.Store.GetAllCategoryProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllCategoryProducts_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCategoryProducts_Quantity" FunctionName="SedapExpressModel.Store.GetAllCategoryProducts_Quantity">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllCategoryProducts_Quantity_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ShoppingCartTypeId" ColumnName="ShoppingCartTypeId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCountries" FunctionName="SedapExpressModel.Store.GetAllCountries">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllCountries_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AllowsBilling" ColumnName="AllowsBilling" />
+          <ScalarProperty Name="AllowsShipping" ColumnName="AllowsShipping" />
+          <ScalarProperty Name="TwoLetterIsoCode" ColumnName="TwoLetterIsoCode" />
+          <ScalarProperty Name="ThreeLetterIsoCode" ColumnName="ThreeLetterIsoCode" />
+          <ScalarProperty Name="NumericIsoCode" ColumnName="NumericIsoCode" />
+          <ScalarProperty Name="SubjectToVat" ColumnName="SubjectToVat" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="LimitedToStores" ColumnName="LimitedToStores" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllDeliverySlots" FunctionName="SedapExpressModel.Store.GetAllDeliverySlots" />
+    <FunctionImportMapping FunctionImportName="GetAllLocations" FunctionName="SedapExpressModel.Store.GetAllLocations" />
+    <FunctionImportMapping FunctionImportName="GetAllMainMenus" FunctionName="SedapExpressModel.Store.GetAllMainMenus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllMainMenus_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllOrderDelivery" FunctionName="SedapExpressModel.Store.GetAllOrderDelivery">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllOrderDelivery_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="LimitedToStore" ColumnName="LimitedToStore" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllOrderItemDetails" FunctionName="SedapExpressModel.Store.GetAllOrderItemDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllOrderItemDetails_Result">
+          <ScalarProperty Name="OrderItemId" ColumnName="OrderItemId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllOrderStatus" FunctionName="SedapExpressModel.Store.GetAllOrderStatus" />
+    <FunctionImportMapping FunctionImportName="GetAllPendingInvoice" FunctionName="SedapExpressModel.Store.GetAllPendingInvoice">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllPendingInvoice_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvNo" ColumnName="InvNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllProducts" FunctionName="SedapExpressModel.Store.GetAllProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllProducts_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllProductsBarcode" FunctionName="SedapExpressModel.Store.GetAllProductsBarcode" />
+    <FunctionImportMapping FunctionImportName="GetAllSearchedProducts" FunctionName="SedapExpressModel.Store.GetAllSearchedProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllSearchedProducts_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllSearchedProducts_CartUpdate" FunctionName="SedapExpressModel.Store.GetAllSearchedProducts_CartUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllSearchedProducts_CartUpdate_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllSubMenus" FunctionName="SedapExpressModel.Store.GetAllSubMenus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllSubMenus_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllWishlistItems" FunctionName="SedapExpressModel.Store.GetAllWishlistItems">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetAllWishlistItems_Result">
+          <ScalarProperty Name="ShoppingCartId" ColumnName="ShoppingCartId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCartWishlistCount" FunctionName="SedapExpressModel.Store.GetCartWishlistCount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetCartWishlistCount_Result">
+          <ScalarProperty Name="CartCount" ColumnName="CartCount" />
+          <ScalarProperty Name="WhishlistCount" ColumnName="WhishlistCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomerByEmailId" FunctionName="SedapExpressModel.Store.GetCustomerByEmailId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetCustomerByEmailId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerGuid" ColumnName="CustomerGuid" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFormatId" ColumnName="PasswordFormatId" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+          <ScalarProperty Name="IsTaxExempt" ColumnName="IsTaxExempt" />
+          <ScalarProperty Name="AffiliateId" ColumnName="AffiliateId" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="HasShoppingCartItems" ColumnName="HasShoppingCartItems" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="IsSystemAccount" ColumnName="IsSystemAccount" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+          <ScalarProperty Name="LastIpAddress" ColumnName="LastIpAddress" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+          <ScalarProperty Name="LastLoginDateUtc" ColumnName="LastLoginDateUtc" />
+          <ScalarProperty Name="LastActivityDateUtc" ColumnName="LastActivityDateUtc" />
+          <ScalarProperty Name="BillingAddress_Id" ColumnName="BillingAddress_Id" />
+          <ScalarProperty Name="ShippingAddress_Id" ColumnName="ShippingAddress_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomerById" FunctionName="SedapExpressModel.Store.GetCustomerById" />
+    <FunctionImportMapping FunctionImportName="GetCustomerByUsername" FunctionName="SedapExpressModel.Store.GetCustomerByUsername">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetCustomerByUsername_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerGuid" ColumnName="CustomerGuid" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFormatId" ColumnName="PasswordFormatId" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+          <ScalarProperty Name="IsTaxExempt" ColumnName="IsTaxExempt" />
+          <ScalarProperty Name="AffiliateId" ColumnName="AffiliateId" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="HasShoppingCartItems" ColumnName="HasShoppingCartItems" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="IsSystemAccount" ColumnName="IsSystemAccount" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+          <ScalarProperty Name="LastIpAddress" ColumnName="LastIpAddress" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+          <ScalarProperty Name="LastLoginDateUtc" ColumnName="LastLoginDateUtc" />
+          <ScalarProperty Name="LastActivityDateUtc" ColumnName="LastActivityDateUtc" />
+          <ScalarProperty Name="BillingAddress_Id" ColumnName="BillingAddress_Id" />
+          <ScalarProperty Name="ShippingAddress_Id" ColumnName="ShippingAddress_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomerNameByCustomerId" FunctionName="SedapExpressModel.Store.GetCustomerNameByCustomerId" />
+    <FunctionImportMapping FunctionImportName="GetCustomerOrderAddress" FunctionName="SedapExpressModel.Store.GetCustomerOrderAddress">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetCustomerOrderAddress_Result">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CustomAttributes" ColumnName="CustomAttributes" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOfferProduct" FunctionName="SedapExpressModel.Store.GetOfferProduct">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetOfferProduct_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOfferProduct_CartUpdate" FunctionName="SedapExpressModel.Store.GetOfferProduct_CartUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetOfferProduct_CartUpdate_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrderBillingAddress" FunctionName="SedapExpressModel.Store.GetOrderBillingAddress">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetOrderBillingAddress_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CustomAttribute" ColumnName="CustomAttribute" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrderDetailsByStatus" FunctionName="SedapExpressModel.Store.GetOrderDetailsByStatus" />
+    <FunctionImportMapping FunctionImportName="getOrderedProducts" FunctionName="SedapExpressModel.Store.getOrderedProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.getOrderedProducts_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrderShippingAddress" FunctionName="SedapExpressModel.Store.GetOrderShippingAddress">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetOrderShippingAddress_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="CustomAttribute" ColumnName="CustomAttribute" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrderSignature" FunctionName="SedapExpressModel.Store.GetOrderSignature">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetOrderSignature_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrderStatus" FunctionName="SedapExpressModel.Store.GetOrderStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetOrderStatus_Result">
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="StatusCount" ColumnName="StatusCount" />
+          <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+          <ScalarProperty Name="IsUpdateStatus" ColumnName="IsUpdateStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetProductDetails" FunctionName="SedapExpressModel.Store.GetProductDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetProductDetails_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetProductDetails_Quantity" FunctionName="SedapExpressModel.Store.GetProductDetails_Quantity">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetProductDetails_Quantity_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetShippingAddressById" FunctionName="SedapExpressModel.Store.GetShippingAddressById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetShippingAddressById_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+          <ScalarProperty Name="CustomAttributes" ColumnName="CustomAttributes" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="StateProvinceId" ColumnName="StateProvinceId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GuestAddressRegistration" FunctionName="SedapExpressModel.Store.GuestAddressRegistration" />
+    <FunctionImportMapping FunctionImportName="HighPriceProducts" FunctionName="SedapExpressModel.Store.HighPriceProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.HighPriceProducts_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="HighPriceProducts_CartUpdate" FunctionName="SedapExpressModel.Store.HighPriceProducts_CartUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.HighPriceProducts_CartUpdate_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LanguagePackImport" FunctionName="SedapExpressModel.Store.LanguagePackImport" />
+    <FunctionImportMapping FunctionImportName="login_procedure" FunctionName="SedapExpressModel.Store.login_procedure" />
+    <FunctionImportMapping FunctionImportName="loginprocedure" FunctionName="SedapExpressModel.Store.loginprocedure" />
+    <FunctionImportMapping FunctionImportName="LowPriceProducts" FunctionName="SedapExpressModel.Store.LowPriceProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.LowPriceProducts_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LowPriceProducts_CartUpdate" FunctionName="SedapExpressModel.Store.LowPriceProducts_CartUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.LowPriceProducts_CartUpdate_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Order_Item" FunctionName="SedapExpressModel.Store.Order_Item" />
+    <FunctionImportMapping FunctionImportName="OrderAmountTotal" FunctionName="SedapExpressModel.Store.OrderAmountTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.OrderAmountTotal_Result">
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="Shippingcost" ColumnName="Shippingcost" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OrderlyDetails" FunctionName="SedapExpressModel.Store.OrderlyDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.OrderlyDetails_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShippingAddressId" ColumnName="ShippingAddressId" />
+          <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="InvNo" ColumnName="InvNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="OrderProductDetails" FunctionName="SedapExpressModel.Store.OrderProductDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.OrderProductDetails_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="PaymentMethodSystemName" ColumnName="PaymentMethodSystemName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PasswordValidation" FunctionName="SedapExpressModel.Store.PasswordValidation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.PasswordValidation_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerGuid" ColumnName="CustomerGuid" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailToRevalidate" ColumnName="EmailToRevalidate" />
+          <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+          <ScalarProperty Name="IsTaxExempt" ColumnName="IsTaxExempt" />
+          <ScalarProperty Name="AffiliateId" ColumnName="AffiliateId" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="HasShoppingCartItems" ColumnName="HasShoppingCartItems" />
+          <ScalarProperty Name="RequireReLogin" ColumnName="RequireReLogin" />
+          <ScalarProperty Name="FailedLoginAttempts" ColumnName="FailedLoginAttempts" />
+          <ScalarProperty Name="CannotLoginUntilDateUtc" ColumnName="CannotLoginUntilDateUtc" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="IsSystemAccount" ColumnName="IsSystemAccount" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+          <ScalarProperty Name="LastIpAddress" ColumnName="LastIpAddress" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+          <ScalarProperty Name="LastLoginDateUtc" ColumnName="LastLoginDateUtc" />
+          <ScalarProperty Name="LastActivityDateUtc" ColumnName="LastActivityDateUtc" />
+          <ScalarProperty Name="RegisteredInStoreId" ColumnName="RegisteredInStoreId" />
+          <ScalarProperty Name="BillingAddress_Id" ColumnName="BillingAddress_Id" />
+          <ScalarProperty Name="ShippingAddress_Id" ColumnName="ShippingAddress_Id" />
+          <ScalarProperty Name="Id1" ColumnName="Id1" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFormatId" ColumnName="PasswordFormatId" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="CreatedOnUtc1" ColumnName="CreatedOnUtc1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductLoadAllPaged" FunctionName="SedapExpressModel.Store.ProductLoadAllPaged" />
+    <FunctionImportMapping FunctionImportName="ProductTagCountLoadAll" FunctionName="SedapExpressModel.Store.ProductTagCountLoadAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.ProductTagCountLoadAll_Result">
+          <ScalarProperty Name="ProductTagId" ColumnName="ProductTagId" />
+          <ScalarProperty Name="ProductCount" ColumnName="ProductCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchProductsList" FunctionName="SedapExpressModel.Store.SearchProductsList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.SearchProductsList_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SetDeliveryProof" FunctionName="SedapExpressModel.Store.SetDeliveryProof" />
+    <FunctionImportMapping FunctionImportName="ShoppingCartAddItem" FunctionName="SedapExpressModel.Store.ShoppingCartAddItem" />
+    <FunctionImportMapping FunctionImportName="ShoppingCartCount" FunctionName="SedapExpressModel.Store.ShoppingCartCount" />
+    <FunctionImportMapping FunctionImportName="ShoppingCartSynchronization" FunctionName="SedapExpressModel.Store.ShoppingCartSynchronization" />
+    <FunctionImportMapping FunctionImportName="SyncProductsQty" FunctionName="SedapExpressModel.Store.SyncProductsQty" />
+    <FunctionImportMapping FunctionImportName="test" FunctionName="SedapExpressModel.Store.test" />
+    <FunctionImportMapping FunctionImportName="TrackingInformations" FunctionName="SedapExpressModel.Store.TrackingInformations" />
+    <FunctionImportMapping FunctionImportName="TrackOrderDetails" FunctionName="SedapExpressModel.Store.TrackOrderDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.TrackOrderDetails_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderStatusId" ColumnName="OrderStatusId" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+          <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateAddressInfo" FunctionName="SedapExpressModel.Store.UpdateAddressInfo" />
+    <FunctionImportMapping FunctionImportName="UpdateDeliveryStatus" FunctionName="SedapExpressModel.Store.UpdateDeliveryStatus" />
+    <FunctionImportMapping FunctionImportName="UpdateOrderedProductDetails" FunctionName="SedapExpressModel.Store.UpdateOrderedProductDetails" />
+    <FunctionImportMapping FunctionImportName="UpdateOrderInvoic" FunctionName="SedapExpressModel.Store.UpdateOrderInvoic" />
+    <FunctionImportMapping FunctionImportName="UpdateOrderInvoiceStatus" FunctionName="SedapExpressModel.Store.UpdateOrderInvoiceStatus" />
+    <FunctionImportMapping FunctionImportName="UpdateOrderInvoicItemPrice" FunctionName="SedapExpressModel.Store.UpdateOrderInvoicItemPrice" />
+    <FunctionImportMapping FunctionImportName="UpdateOrderInvoicPrice" FunctionName="SedapExpressModel.Store.UpdateOrderInvoicPrice" />
+    <FunctionImportMapping FunctionImportName="UpdateOrderSlot" FunctionName="SedapExpressModel.Store.UpdateOrderSlot" />
+    <FunctionImportMapping FunctionImportName="UpdateOrderStatus" FunctionName="SedapExpressModel.Store.UpdateOrderStatus" />
+    <FunctionImportMapping FunctionImportName="UpdatePassword" FunctionName="SedapExpressModel.Store.UpdatePassword" />
+    <FunctionImportMapping FunctionImportName="UpdateShippingAddress" FunctionName="SedapExpressModel.Store.UpdateShippingAddress" />
+    <FunctionImportMapping FunctionImportName="WishListItemNumberUpdate" FunctionName="SedapExpressModel.Store.WishListItemNumberUpdate" />
+    <FunctionImportMapping FunctionImportName="WishlistSynchronization" FunctionName="SedapExpressModel.Store.WishlistSynchronization" />
+    <FunctionImportMapping FunctionImportName="GetWishlistCount" FunctionName="SedapExpressModel.Store.GetWishlistCount" />
+    <FunctionImportMapping FunctionImportName="CustomerInfo" FunctionName="SedapExpressModel.Store.CustomerInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.CustomerInfo_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="StateProvinceId" ColumnName="StateProvinceId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SaveAddressInfo" FunctionName="SedapExpressModel.Store.SaveAddressInfo" />
+    <FunctionImportMapping FunctionImportName="GetProductById" FunctionName="SedapExpressModel.Store.GetProductById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetProductById_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetProductById_CartUpdate" FunctionName="SedapExpressModel.Store.GetProductById_CartUpdate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SedapExpressModel.GetProductById_CartUpdate_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sku" ColumnName="Sku" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="OfferPercentage" ColumnName="OfferPercentage" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

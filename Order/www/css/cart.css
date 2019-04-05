@@ -1,0 +1,138 @@
+     .button-1.checkout-button {
+    background: #0078ff;
+    font-size: 9px;
+    border-radius: 3px;
+    width: 100%;
+    padding: 10px;
+    border: 0px !important;
+    margin-top: 2%;
+    text-transform: uppercase;color:#fff;
+    font-size: 14px;  
+}
+
+.EmptyCartImg {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+}
+.EmptyCartImg img {
+    width: 50%;
+}
+.EmptyCartText {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.btnShopping {
+    background: #fca402;
+    color: #fff;
+    border: none;
+    padding: 15px 40px 15px 40px;
+    text-decoration: none;
+}
+.CountinouShopping {
+    text-align: center;
+    margin-top: 25px;
+}
+.CheckOut.order {
+bottom: 0px;
+}
+.OrderDetails a {
+color: orange;
+}
+.CheckOut {
+    background: #fba303;
+    color: #fff;
+  
+position: fixed;
+bottom: 50px;
+width: 100%;
+    
+}
+div#Checkout {
+height: 93% !important;
+}
+div#MyCartPage {
+height: 93% !important;
+}
+span.txtTotal {
+    float: right;
+}
+.btnCheckout
+{
+    color: #fff;
+    padding: 15px 10px 15px 10px;
+    display:block;
+}
+     .button-1.checkout-button {
+    background: #0078ff;
+    font-size: 9px;
+    border-radius: 3px;
+    width: 100%;
+    padding: 10px;
+    border: 0px !important;
+    margin-top: 2%;
+    text-transform: uppercase;color:#fff;
+    font-size: 14px;  
+}
+
+.EmptyCartImg {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+}
+.EmptyCartImg img {
+    width: 50%;
+}
+.EmptyCartText {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.btnShopping {
+    background: #fca402;
+    color: #fff;
+    border: none;
+    padding: 15px 40px 15px 40px;
+    text-decoration: none;
+}
+.CountinouShopping {
+    text-align: center;
+    margin-top: 25px;
+}
+.CheckOut.order {
+bottom: 0px;
+}
+.OrderDetails a {
+color: orange;
+}
+.CheckOut {
+    background: #fba303;
+    color: #fff;
+  
+position: fixed;
+bottom: 50px;
+width: 100%;
+    
+}
+div#Checkout {
+height: 93% !important;
+}
+div#MyCartPage {
+height: 93% !important;
+}
+span.txtTotal {
+    float: right;
+}
+.btnCheckout
+{
+    color: #fff;
+    padding: 15px 10px 15px 10px;
+    display:block;
+}

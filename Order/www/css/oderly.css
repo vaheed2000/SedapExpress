@@ -1,0 +1,234 @@
+header.HeaderSection {
+background: #fe4e51 !important;
+border-bottom: #fe4e51 !important;
+}
+
+ .categoriessection ul li strong
+{
+  text-transform: none !important;
+color: #525151;
+font-weight: normal;
+float: left;
+width: 25%;
+text-align: left;
+padding-left: 3%; 
+padding-top: 1%;
+}
+
+.categoriessection ul li span {
+font-weight: bold;
+font-size: 20px;
+padding-right:0%; 
+color: #1093de;
+/*float: right;*/
+        margin-left: 170px;
+}
+
+.categoriessection ul li a {
+font-weight: bold;
+font-size: 20px;
+padding-right: 1%;
+color: #444343;
+float: right;
+}
+
+.productdetaillist ul label {
+position: absolute;
+right: -87%;
+top: -5px;
+float: right;
+}    
+
+
+#OrderList
+
+{
+   float: left;
+width: 100%;
+padding: 4%;
+}
+
+.card {
+float: left;
+width: 100%;
+margin: 0;
+padding: 5%;
+margin-bottom: 4%;
+}
+.TopOrderSection {
+float: left;
+width: 100%;
+}
+.orderid {
+float: left;
+width: 20%;
+background: #f1f1f1;
+color: #3a3939; 
+height: 50px;
+border-radius: 7px;
+text-align: center;
+font-size: 16px;
+padding-top: 15px;
+}
+
+.orderdetails {
+float: left;
+width: 77%;
+margin-left: 3%;
+}
+.ordermobile {
+height: 24px;
+border-bottom: 1px solid #e7e7ea;
+    width: 100%;
+float: left;
+}
+
+.orderdateprice {
+margin-top: 5px;
+    float: left;
+width: 100%;
+}
+
+.orderdate {
+float: left;
+}
+
+.orderprice { 
+float: right;
+color: black;
+font-weight: bold;
+}
+
+div#OrderProductList input {
+width: 100%;
+
+}
+
+.imags {
+float: left;
+width: 30%;
+min-width: 30%;
+}
+
+.productdetaillist { 
+width: 66%;
+float: left;
+padding: 0;
+margin-left: 5%;
+}
+
+strong.checkouttotal {
+padding-left: 6px;
+position: relative;
+top: -5px;
+}
+
+
+a.scan {
+color: #fff;
+margin-top: 9px;
+font-size: 20px;
+    float: right;
+}
+.categoriessection ul {
+margin-top: 10px;
+    padding-left: 10px;
+padding-right: 10px;
+
+}
+
+ .categoriessection ul li {
+    margin: 1.001%;
+    border: 1px solid #dedede; 
+    border-radius: 10px;
+    width: 100%;
+    border-right: 1px solid #dedede !important;
+    min-height: 0%;
+    padding: 2%;
+}
+div#OrderProductList { 
+padding: 4%;
+}
+
+
+
+a.customerinfo {
+float: right;
+font-size: 17px;
+color: #fca402; 
+margin-left: 0px;
+}
+.OrderDetails
+{
+        color: orange;
+    text-align: center;
+    margin-top: 20px;
+}
+ 
+.profilename
+{
+   text-align: center; 
+}
+.profilemail
+{
+    text-align: center; 
+}
+.useravatharpanel {
+padding-bottom: 10px;
+background: #f5f3f3;
+}
+.avathar img {
+width: 50% !important;
+margin-top: 20px;
+height: 50% !important;
+border-radius: 100%;
+}
+
+.frame-border{
+    width: 350px;
+    height: 630px;
+    outline: none;
+	border: solid 20px #000;
+    border-radius: 40px;
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	-o-border-radius: 40px;
+	-ms-border-radius: 40px;
+    border-bottom: solid 80px #000;
+    border-top: solid 60px #000;
+}
+.main_frame.second {
+    height: 100%;
+   background-color: rgba(224, 214, 214, 0.16);
+    padding: 5px;
+    border-radius: 45px;
+	-webkit-border-radius:45px;
+	-moz-border-radius:45px;
+	-o-border-radius:45px;
+	-ms-border-radius:45px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 360px;
+    height: 640px;
+} 
+.customerinfo.edit 
+{position: relative;
+left: 0px;
+top: 100px;
+}
+.AvatharOuter
+{
+    text-align: center;
+    padding-top: 10px;
+}
+.avathar {
+text-align: center;
+    display: inline-block;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; 
+     background-image: url('img/User.png');
+   }

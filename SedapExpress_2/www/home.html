@@ -1,0 +1,725 @@
+﻿<!DOCTYPE html>
+<html>
+   <!--
+      * Please see the included README.md file for license terms and conditions.
+      -->
+   <head>
+      <title>SedapExpress</title>
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+      <!--
+         * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+         * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+         * For a quick overview of "meta viewport" and @viewport, see this article:
+         *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+         * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+         * Additional useful references include:
+         *   http://www.quirksmode.org/mobile/viewports.html
+         *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+         *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html  
+         -->
+      <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+      <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+      <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+      <style>
+         /* following three (cascaded) are equivalent to above three meta viewport statements */
+         /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+         /* see http://dev.w3.org/csswg/css-device-adapt/ */
+         @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+         @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+         /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+      </style>
+      <link rel="stylesheet" href="css/cart.css">
+      <!--bootstrap-->
+      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <!--custom css-->
+      <link href="css/style.css" rel="stylesheet" type="text/css" />
+      <link href="css/home.css" rel="stylesheet" type="text/css" />
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/app.css">
+      <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
+      <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
+      <link href="css/loginscreen.css" rel="stylesheet" type="text/css" />
+      <link href="css/detailpage.css" rel="stylesheet" type="text/css" />
+      <link href="css/checkout.css" rel="stylesheet" type="text/css" />
+      <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+      <!-- Place your remote debugging (weinre) script URL here, if it does not work below. -->
+      <!-- Recommended location for your JavaScript libraries -->
+      <!-- These library references (below) are just examples to give you the general idea... -->
+      <!-- <script src="lib/mc/hammer.js"></script> -->
+      <!-- <script src="lib/ft/fastclick.js"></script> -->
+      <!--
+         * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+         * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?  
+         * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+         * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+         --><script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+      <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.js"></script>
+      <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+      <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
+      <script src="cordova.js"></script>
+      <script src="js/app.js"></script>           <!-- for your event code, see README and file comments for details -->
+      <script src="js/init-app.js"></script>      <!-- for your init code, see README and file comments for details -->
+      <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see file for details -->
+      <script src="js/bamyc.js"></script>
+      <script type="text/javascript">
+          $(document).ready(function () {
+              RegistrationCountry();
+              ProfileLoad();
+            $.getJSON("http://jsonip.com/?callback=?", function (data) {
+         ipAddress=data.ip;
+         if (window.localStorage.getItem('LogOutCustomerId') != 'null' || window.localStorage.getItem('LogOutCustomerId') != null) {
+            setLogoutCookies();
+         }
+         });
+            // HomePage();
+             LoadCountries();     
+                                       $.afui.autoLaunch = true;                                                         
+         DefaultShippingAddress();           
+         CheckCustomerLoginState();
+         UpdateCartCount(); 
+         UpdateWishlistCount(); 
+         LoadCategories();
+         CartProducts();
+             CategoryProducts(31); CategoryProducts(234); CategoryProducts(235); CategoryProducts(236); CategoryProducts(239); CategoryProducts(240);  
+             WishListProducts();
+             RecentlyViewedProducts();    
+              if (window.localStorage.getItem('LoginCustomerID') != 'null' && window.localStorage.getItem('LoginCustomerID') != null)
+         { 
+             var BestSellingUrl=Base_Url+'Product.svc/BestSellingProduct?Count=6&CustomerId='+ window.localStorage.getItem('LoginCustomerID'); 
+           var LowPriceUrl=Base_Url+'Product.svc/LowPriceProducts?Count=6&CustomerId='+ window.localStorage.getItem('LoginCustomerID'); 
+          var HighPriceUrl=Base_Url+'Product.svc/HighPriceProducts?Count=6&CustomerId='+ window.localStorage.getItem('LoginCustomerID'); 
+          var OfferPriceUrl=Base_Url+'Product.svc/GetOfferProduct?count=6&CustomerId='+ window.localStorage.getItem('LoginCustomerID'); 
+          LoadProducts('BestSellingProducts',BestSellingUrl);
+            LoadProducts('LowPrice',LowPriceUrl);
+            LoadProducts('HighPrice',HighPriceUrl); 
+            LoadProducts('OfferPrice',OfferPriceUrl);
+         }
+             else
+                 {
+                      var BestSellingUrl=Base_Url+'Product.svc/BestSellingProduct?Count=6&CustomerId='+ window.localStorage.getItem('LogOutCustomerId');
+                        var LowPriceUrl=Base_Url+'Product.svc/LowPriceProducts?Count=6&CustomerId='+ window.localStorage.getItem('LogOutCustomerId');
+                       var HighPriceUrl=Base_Url+'Product.svc/HighPriceProducts?Count=6&CustomerId='+ window.localStorage.getItem('LogOutCustomerId');
+                     var OfferPriceUrl=Base_Url+'Product.svc/GetOfferProduct?count=6&CustomerId='+ window.localStorage.getItem('LogOutCustomerId');
+         LoadProducts('BestSellingProducts',BestSellingUrl);
+            LoadProducts('LowPrice',LowPriceUrl);
+            LoadProducts('HighPrice',HighPriceUrl);
+            LoadProducts('OfferPrice',OfferPriceUrl);
+                 }
+             NewAddressArea();
+             NewAddressCountry();
+             RegistrationArea();
+          
+             Address_NewAddressArea();
+             Address_NewAddressCountry();  
+             LoadCategoriesNames();
+             SearchProductsList();
+         });
+             
+      </script>  
+   </head>
+   <body>
+      <div class="view splitview"> 
+         <header class="HeaderSection" >
+            <a class="menuButton" data-left-menu="left" data-close data-transition="cover" style="float:left"></a>
+            <h1 id="ApplicationTitle">Title</h1>
+            <a data-right-menu="right"  data-transition="slide" style="float:right" class="userButton"><img src="img/usericon.png" style="width: 26px;margin-left: 4%;margin-top: -4%;"></a>
+            <a style="float:right" class="searchButton" href="#SearchTab" onclick=" $.afui.clearHistory();" data-ignore-pressed="true" ><img src="img/searchicon.png" style="width:20px;height:20px;margin-left:70%;margin-top:3%"></a>
+         </header>
+         <!--This is Container-->  
+         <div class="pages" id="MainPage">
+             <div class="panel" data-title="Login" id="LoginPage">
+                 <div class="locationbg">
+                     <!--     <a data-transition="slide" class="CloseButton icon close"  onclick="HideLoginPanel();"></a>-->
+                     <!--<p style="text-align:right;margin-right:25px;"><i class="fa fa-times" aria-hidden="true" onclick="HideLoginPanel()" style="color:white"></i></p>-->
+                     <div class="innerlogo"><img src="images/logoNew.png" /></div>
+                     <div class="taglineloginscreen">Login to your account</div>
+                     <div class="formsection">
+                         <form name="login" id="Login">
+                             <ul>
+                                 <li><input placeholder="Email Id" type="email" id=username /></li>
+                                 <li><input placeholder="Password" type="password" id="passid" /></li>
+                                 <li><input type="button" name="loginsubmit" id="loginsubmit" onclick="Login(this.form)" value="Login" /></li>
+                                 <div class="clear"></div>
+                             </ul>
+                         </form>
+                     </div>
+                     <div class="clear"></div>
+                     <!--<div class="forgetpassword"><a href="#ForgetPassword">Forget password?</a></div>-->
+                     <div class="OR_Text">OR</div>
+                     <div class="registernow"><a class="register" href="#Register" onclick="ClearRegisteredData()"><input type="button" value="REGISTER NOW!" /></a></div>
+                 </div>
+                 <div class="clear"></div>
+             </div>
+             <div class="panel" data-title="Registration" id="Register">
+                 <div class="formsection" style="padding:0 25px">
+                     <form name='registration' id="Register" style="width:100%; margin-top:15px">
+                         <ul>
+                        
+                             <li><input type="text" id="registration_firstname" placeholder="First Name" name="firstname" /></li>
+                             <li><input type="text" id="registration_lastname" placeholder="Last Name" name="lastname" /></li>
+                             <li><input type="email" id="registration_email" placeholder="Email Id" name="email" /></li>
+                             <li><input type="text" id="registration_phone" placeholder="Phone" name="phone" /></li>
+                             <li><input type="text" id="registration_address" placeholder="Address" name="address" /></li>
+                             <li>
+                                 <select id="registration_country" onchange="RegistrationArea()">
+                                     <option value="0" selected="selected">Country</option>
+                                 </select> 
+                             </li>
+                             <li>
+                                 <select id="registration_area"  >
+                                     <option value="0" selected="selected">Location</option>
+                                 </select>
+                             
+                             </li>
+                             <li><input type=password name="password" placeholder="Password" id="registration_password" /></li>
+                             <li><input type=password name="confirmpassword" placeholder="Confirm Password" id="registration_confirmpassword" /></li>
+                             <li><input type="button" name="submit" style="width: 100%;height: 45px;background:#f07b2a;color:#fff;border:none" value="Submit" class="Register" onclick="Register()" ; /></li>
+
+                                 <div class="clear"></div>
+                         </ul>
+                        
+                 
+                     </form>
+                     </div>
+                     <div class="clear"></div>
+                 </div>
+
+
+                 <div class="panel" data-title="SedapExpress" id="HomePage" data-selected="true">
+                     <div class="slidersection"><img src="images/slider.png" /></div>
+                     <div class="clear"></div>
+                     <div class="categoriessection">
+                         <ul id="popular"></ul>
+                     </div>
+                     <div class="clear"></div>
+                     <div class="slidersection"><img src="img/img1.jpg" /></div>
+                     <div class="clear"></div>
+                     <div class="listbg">
+                         <div class="listsection">
+                             <strong>Best Selling Products</strong>
+                         </div>
+                         <div class="clear"></div>
+                         <ul class="productlist" id="BestSellingProducts"></ul>
+                     </div>
+                     <div class="clear"></div>
+                     <div class="slidersection"><img src="img/img2.jpg" /></div>
+                     <div class="listbg">
+                         <div class="listsection">
+                             <strong>Low Price Products</strong>
+                         </div>
+                         <div class="clear"></div>
+                         <ul class="productlist" id="LowPrice"></ul>
+                     </div>
+                     <div class="clear"></div>
+                     <div class="slidersection"><img src="img/img3.jpg" /></div>
+                     <div class="listbg">
+                         <div class="listsection">
+                             <strong>High Price Products</strong>
+                         </div>
+                         <div class="clear"></div>
+                         <ul class="productlist" id="HighPrice"></ul>
+                     </div>
+                     <div class="slidersection"><img src="img/img4.jpg" /></div>
+                     <div class="listbg">
+                         <div class="listsection">
+                             <strong>Offer Price Products</strong>
+                         </div>
+                         <div class="clear"></div>
+                         <ul class="productlist" id="OfferPrice"></ul>
+                     </div>
+                     <div class="clear"></div>
+                 </div>
+                 <div class="panel" data-title="Shipping Address" id="Address_CheckoutAddressList">
+                     <div class="CheckOut">
+                         <a class="Register submitbutton" style="display:block;" href="#Address_CheckoutAddNewAddress">
+                             New Address
+                         </a>
+                     </div>
+                     <div class="Shippingdetails addlist" id="Address_Shippingdetails_addlist"></div>
+                 </div>
+                 <div class="panel" data-title="Add Address" id="Address_CheckoutAddNewAddress">
+                     <form name='Address_AddShippingAddress' id="Address_AddShippingAddress" style="margin-top: 15px;">
+                         <label>First Name</label>
+                         <input type=text class="firstname" id="Address_txtnew_firstname" name="firstname">
+                         <label>Last Name</label>
+                         <input type=text class="lastname" id="Address_txtnew_lastname" name="lastname">
+                         <label>Email</label>
+                         <input type=text class="email" id="Address_txtnew_email" name="email">
+                         <label>Phone Number</label>
+                         <input type=text class="phone" id="Address_txtnew_phone" name="phone">
+                         <label>Flat No</label>
+                         <input type=text class="phone" id="Address_txtnew_FlatNo" name="Flat No">
+                         <label>Street Address</label>
+                         <input type=text class="address" id="Address_txtnew_streetaddress" name="address">
+                         <label>Land Mark</label>
+                         <input type=text class="phone" id="Address_txtnew_StreetLandMark" name="Street/ Land Mark">
+                         <label>Country</label>
+                         <select id="Address_txt_newAddNewAddressCountry" onchange="Address_NewAddressArea('Address_txtnew_AddNewAddressArea','Address_txt_newAddNewAddressCountry')">
+                             <option value="0">Country</option>
+                         </select>
+                         <label>Location</label>
+                         <select id="Address_txtnew_AddNewAddressArea">
+                             <option value="0">Location</option>
+                         </select>
+                         <input type="button" name="submit" value="Submit" class="Register submitbuttonfull" onclick="Address_AddNewShippingAddressValidation()" ; />
+                     </form>
+                 </div>
+                 <div class="panel" data-title="Edit Address" id="Address_EditAddress">
+                     <div>
+                         <form name='Address_editaddress' id="Address_EditAddress" style="margin-top: 15px;">
+                             <label>First Name</label>
+                             <input type=text class="FirstName" id="Address_txtShipping_FirstName" name="FirstName">
+                             <label>Last Name</label>
+                             <input type=text class="LastName" id="Address_txtShipping_LastName" name="LastName">
+                             <label>Email</label>
+                             <input type=text class="email" id="Address_txtShipping_Email" name="Email">
+                             <label>Phone Number</label>
+                             <input type=text class="Phone_Number" id="Address_txtShipping_Phone_Number" name="Phone_Number">
+                             <label>Flat No</label>
+                             <input type=text class="phone" id="Address_txtShipping_FlatNo" name="Flat No">
+                             <label>Building Address</label>
+                             <input type=text class="address" id="Address_txtBuilding_address" name="address">
+                             <label>Land Mark</label>
+                             <input type=text class="phone" id="Address_txtStreet_LandMark" name="Street/ Land Mark">
+                             <label>Country</label>
+                             <select id="Address_txtShipping_country">
+                                 <option value="0">Country</option>
+                             </select>
+                             <label>Location</label>
+                             <select id="Address_txtShipping_area">
+                                 <option value="0">Location</option>
+                             </select>
+                         </form>
+                     </div>
+                     <div class="Accept">
+                         <div class="item">
+                             <p>Set as default shipping address</p>
+                             <input type="checkbox" id="toggle_today_summary_set" name="" value="">
+                             <div class="toggle">
+                                 <label for="toggle_today_summary_set"><i></i></label>
+                             </div>
+                         </div>
+                     </div>
+                     <input type="button" name="submit" onclick="Address_UpdateShippingAddressValidation()" value="Submit" class="Register submitbutton" ; />
+                 </div>
+                 <div class="panel" data-title="Search" id="SearchTab">
+                     <div class="searchoptions">
+                         <input type=text id="search" oninput='SelectSearchProduct()' list="searchproductslist" placeholder="search products" />
+                         <datalist id="searchproductslist"></datalist>
+                         <!--  <a class="searchButton icon magnifier big"  onclick="SearchProducts()"></a>-->
+                         <ul id="SearchProducts" class="productlist"></ul>
+                     </div>
+                     <div class="emptylist">
+                         <div id="EmptySearch" style="display:none;">
+                             <div class="EmptyCartImg">
+                                 <img src="img/EmptySearch.png" />
+                             </div>
+                             <div class="EmptyCartText">
+                                 Your Search List is <strong>Empty</strong>
+                             </div>
+                             <div class="CountinouShopping">
+                                 <a href="#HomePage" class="btnShopping" onclick="HomePage()">CONTINUE SHOPPING</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="panel" data-title="Promotion" id="PromotionPage">
+                     <ul id="Promotions" class="productlist"></ul>
+                 </div>
+                 <div class="panel" data-title="Recently Viewed" id="RecentlyViewedPage">
+                     <div id="EmptyRecent" style="display:none;">
+                         <div class="EmptyCartImg">
+                             <img src="img/EmptyRecent.png" />
+                         </div>
+                         <div class="EmptyCartText">
+                             Your Recent Viewed List is <strong>Empty</strong>
+                         </div>
+                         <div class="CountinouShopping">
+                             <a href="#HomePage" class="btnShopping" onclick="HomePage()">CONTINUE SHOPPING</a>
+                         </div>
+                     </div>
+                     <ul id="RecentlyViewedProduct" class="productlist"></ul>
+                 </div>
+                 <!--            </div>-->
+                 <div class="panel" data-title="Wishlist" id="WishlistPage">
+                     <div class="shoppingcartwrapper">
+                         <div id="EmptyWishList" style="display:none;">
+                             <div class="EmptyCartImg">
+                                 <img src="img/EmptyWishlist.png" />
+                             </div>
+                             <div class="EmptyCartText">
+                                 Your Wishlist is <strong>Empty</strong>
+                             </div>
+                             <div class="CountinouShopping">
+                                 <a href="#HomePage" class="btnShopping" onclick="HomePage()">CONTINUE SHOPPING</a>
+                             </div>
+                         </div>
+                         <ul id="WishListProduct"></ul>
+                     </div>
+                 </div>
+                 <div class="panel" data-title="MyCart" id="MyCartPage">
+                     <div class="shoppingcartwrapper">
+                         <div id="EmptyCart" style="display:none;">
+                             <div class="EmptyCartImg">
+                                 <img src="img/EmptyCart.png" />
+                             </div>
+                             <div class="EmptyCartText">
+                                 Your Cart is <strong>Empty</strong>
+                             </div>
+                             <div class="CountinouShopping">
+                                 <a href="#HomePage" class="btnShopping" onclick="HomePage()">CONTINUE SHOPPING</a>
+                             </div>
+                         </div>
+                         <ul id="CartProducts"></ul>
+                         <div id="CartPageElement">
+                             <div class="clear"></div>
+                             <div class="shippingcarttotal">
+                                 <ul>
+                                     <li><strong>Sub Total</strong> <span class="pricecart" id="SubTotal"> AED</span></li>
+                                     <li class="shippingcharge"><strong>Shipping charges</strong> <span class="pricecart" id="ShippingCharge"> AED</span></li>
+                                     <li><strong>Grand Total</strong> <span class="pricecart" id="GrandTotal"> AED</span></li>
+                                 </ul>
+                             </div>
+                             <div class="clear"></div>
+                             <div class="shippingformsedtion">
+                                 <form>
+                                     <input type="text" placeholder="Enter your coupon here" /> <input type="button" value="Apply Coupon" />
+                                 </form>
+                                 <form>
+                                     <div class="clear"></div>
+                                     <input type="text" placeholder="Enter your Gift code" /> <input type="button" value="Add gift code" />
+                                 </form>
+                             </div>
+                             <div class="clear"></div>
+                             <div class="CheckOut">
+                                 <a class="btnCheckout" onclick="LoadCheckoutPage()"><span class="txtCheckOut">PROCEED TO CHECKOUT</span><span class="txtTotal" id="TotalAmount"> </span></a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="panel" data-title="SedapExpress" id="ProductDetails">
+                     <div id="ProductDetailsContent">
+                     </div>
+                     <div class="listsection">
+                         <strong>Best Selling Products</strong>
+                     </div>
+                     <ul id="ProductDetailsBestSellingProducts" class="productlist"></ul>
+                 </div>
+                 <div class="panel" data-title="Change Password" id="ChangePassword">
+                     <form id="ChangePass">
+                         <input type=password id="Password" name="Password" placeholder="Password" />
+                         <input type=password id="NewPassword" name="NewPassword" placeholder="NewPassword" />
+                         <input type=password id="ConfirmPassword" name="ConfirmPassword" placeholder="ConfirmPassword" />
+                         <input type="button" name="submit" style="    background: #f07b2a;    color: #fff;    font-size: 15px;" class="Register" value="ChangePassword" onclick="ChangePasword()" />
+                     </form>
+                 </div>
+                 <div class="panel" data-title="CustomerInfo" id="CustomerInfo">
+                     <form name='CustomerInfo' id="CustomerInfo" style="margin-top: 34px;">
+                         <label>First Name</label>
+                         <input type=text class="firstname" id="CustomerInfo_firstname" name="firstname">
+                         <label>Last Name</label>
+                         <input type=text class="lastname" id="CustomerInfo_lastname" name="lastname">
+                         <label>Email</label>
+                         <input type=text class="email" id="CustomerInfo_email" name="email">
+                         <label>Phone Number</label>
+                         <input type=text class="phone" id="CustomerInfo_phone" name="phone">
+                         <label>Address</label>
+                         <input type=text class="address" id="CustomerInfo_address" name="address">
+                         <label>Country</label>
+                         <select id="CustomerInfo_country" onchange="RegistrationArea('CustomerInfo_area','CustomerInfo_country')">
+                             <option value="0">Country</option>
+                         </select>
+                         <label>Location</label>
+                         <select id="CustomerInfo_area">
+                             <option value="0">Location</option>
+                         </select>
+                         <input type="button" name="SAVE" style="    background: #f07b2a;    color: #fff;    font-size: 15px;" value="SAVE" class="Register" onclick="CustomerInfo_Update()" />
+                     </form>
+                 </div>
+                 <div class="panel" data-title="Track Order" id="TrackOrder">
+                     <div id="TrackOrder">
+                         <div class="Shippingdetails" id="TrackOrderShippingDetails"></div>
+                     </div>
+                 </div>
+                 <div class="panel" data-title="Track Order Details" id="TrackOrderDetails">
+                     <div id="TrackOrderDetailInformationBilling"></div>
+                     <div id="TrackOrderDetailInformationShipping"></div>
+                     <div id="TrackOrderDetailInformationPayment"></div>
+                     <div class="Productdetails">
+                         <div class="Producttitle">
+                             <div class="Producttitle">
+                                 <strong>Product Details</strong>
+                             </div>
+                         </div>
+                         <div class=ProductsList>
+                             <div class="shoppingcartwrapper">
+                                 <ul id="TrackOrderProductDetails"></ul>
+                             </div>
+                         </div>
+                         <div class="clear"></div>
+                         <div class="shippingcarttotal">
+                             <ul>
+                                 <li><strong>Sub Total</strong> <span class="pricecart" id="SubTotalTrackOrder"> AED</span></li>
+                                 <li class="shippingcharge"><strong>Shipping charges</strong> <span class="pricecart" id="ShippingChargesTrackOrder"> AED</span></li>
+                                 <li><strong>Grand Total</strong> <span class="pricecart" id="GrandTotalTrackOrder"> AED</span></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="panel" data-title="Checkout" id="Checkout">
+                     <div class="Shippingdetails">
+                         <div class="shippingtitle">
+                             <strong>Shipping Address</strong>
+                             <a href="#CheckoutAddressList" onclick="ShippingAddressList()" class="shippingaddresslist">
+                                 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                             </a>
+                         </div>
+                         <div class="ShippingAddress" id="DefaultShippingAddress"></div>
+                     </div>
+                     <div class="Paymentdetails">
+                         <div class="Paymenttitle">
+                             <div class="Paymenttitle">
+                                 <strong>Payment Methods</strong>
+                             </div>
+                         </div>
+                         <div class=PaymentMethods>
+                             <ul class="method-list">
+                                 <li>
+                                     <div class="method-name">
+                                         <div class="payment-logo">
+                                             <img src="http://www.bamyc.com/plugins/Payments.PayInStore/logo.jpg" alt="Pay with Card upon delivery">
+                                         </div>
+                                         <div class="payment-details">
+                                             <input id="paymentmethod_0" type="radio" name="paymentmethod" value="Payments.PayInStore" checked="checked">
+                                             <label for="paymentmethod_0">Pay with Card upon delivery</label>
+                                         </div>
+                                     </div>
+                                 </li>
+                                 <li>
+                                     <div class="method-name">
+                                         <div class="payment-logo">
+                                             <img src="http://www.bamyc.com/plugins/Payments.CashOnDelivery/logo.jpg" alt="Pay with cash upon delivery">
+                                         </div>
+                                         <div class="payment-details">
+                                             <input id="paymentmethod_1" type="radio" name="paymentmethod" value="Payments.CashOnDelivery">
+                                             <label for="paymentmethod_1">Pay with cash upon delivery</label>
+                                         </div>
+                                     </div>
+                                 </li>
+                             </ul>
+                         </div>
+                     </div>
+                     <div class="Productdetails">
+                         <div class="Producttitle">
+                             <div class="Producttitle">
+                                 <strong>Product Details</strong>
+                             </div>
+                         </div>
+                         <div class=ProductsList>
+                             <div class="shoppingcartwrapper">
+                                 <ul id="CheckoutProductDetails"></ul>
+                             </div>
+                         </div>
+                         <div class="clear"></div>
+                         <div class="shippingcarttotal">
+                             <ul>
+                                 <li><strong>Sub Total</strong> <span class="pricecart" id="SubTotalCheckout"> AED</span></li>
+                                 <li class="shippingcharge"><strong>Shipping charges</strong> <span class="pricecart" id="ShippingChargesCheckout"> AED</span></li>
+                                 <li><strong>Grand Total</strong> <span class="pricecart" id="GrandTotalCheckout"> AED</span></li>
+                             </ul>
+                         </div>
+                     </div>
+                     <div class="clear"></div>
+                     <div class="Accept">
+                         <div class="item">
+                             <p><a onclick="TermsAndConditions()">Accept terms & conditions</a></p>
+                             <input type="checkbox" id="toggle_today_summary_accept_Checkout" name="" value="">
+                             <div class="toggle">
+                                 <label for="toggle_today_summary_accept_Checkout"><i></i></label>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="clear"></div>
+                     <div class="CheckOut order">
+                         <a class="btnCheckout" onclick="CheckOut();"><span class="txtCheckOut">PLACE ORDER</span><span class="txtTotal" id="TotalAmountPlaceOrder"></span></a>
+                     </div>
+                 </div>
+                 <div class="panel" data-title="Shipping Address" id="CheckoutAddressList">
+                     <div class="CheckOut addaddress">
+                         <a class="btnCheckout1" href="#CheckoutAddNewAddress" style="color:#fff">
+                             New Address
+                         </a>
+                     </div>
+                     <div class="Shippingdetails addlist" id="Shippingdetails_addlist"></div>
+                 </div>
+                 <div class="panel" data-title="Add address" id="CheckoutAddNewAddress">
+                     <form name='AddShippingAddress' style="margin-top: 15px;">
+                         <label>First Name</label>
+                         <input type=text class="firstname" id="txtnew_firstname" name="firstname">
+                         <label>Last Name</label>
+                         <input type=text class="lastname" id="txtnew_lastname" name="lastname">
+                         <label>Email</label>
+                         <input type=text class="email" id="txtnew_email" name="email">
+                         <label>Phone Number</label>
+                         <input type=text class="phone" id="txtnew_phone" name="phone">
+                         <label>Flat No</label>
+                         <input type=text class="phone" id="txtnew_FlatNo" name="Flat No">
+                         <label>Street Address</label>
+                         <input type=text class="address" id="txtnew_streetaddress" name="address">
+                         <label>Land Mark</label>
+                         <input type=text class="phone" id="txtnew_StreetLandMark" name="Street/ Land Mark">
+                         <label>Country</label>
+                         <select id="txt_newAddNewAddressCountry" onchange="NewAddressArea('txtnew_AddNewAddressArea','txt_newAddNewAddressCountry')">
+                             <option value="0">Country</option>
+                         </select>
+                         <label>Location</label>
+                         <select id="txtnew_AddNewAddressArea">
+                             <option value="0">Location</option>
+                         </select>
+                         <input type="button" name="submit" value="Submit" class="Register submitbuttonfull" onclick="AddNewShippingAddressValidation()" ; />
+                     </form>
+                 </div>
+                 <div class="panel" data-title="Edit address" id="EditAddress">
+                     <div>
+                         <form name='editaddress' id="EditAddress" style="margin-top: 15px;">
+                             <label>First Name</label>
+                             <input type=text class="FirstName" id="txtShipping_FirstName" name="FirstName">
+                             <label>Last Name</label>
+                             <input type=text class="LastName" id="txtShipping_LastName" name="LastName">
+                             <label> Email</label>
+                             <input type=text class="email" id="txtShipping_Email" name="Email">
+                             <label>Phone Number</label>
+                             <input type=text class="Phone_Number" id="txtShipping_Phone_Number" name="Phone_Number">
+                             <label>Flat No</label>
+                             <input type=text class="phone" id="txtShipping_FlatNo" name="Flat No">
+                             <label>Building Address</label>
+                             <input type=text class="address" id="txtBuilding_address" name="address">
+                             <label>Land Mark</label>
+                             <input type=text class="phone" id="txtStreet_LandMark" name="Street/ Land Mark">
+                             <label>Country</label>
+                             <select id="txtShipping_country">
+                                 <option value="0">Country</option>
+                             </select>
+                             <label>Location</label>
+                             <select id="txtShipping_area">
+                                 <option value="0">Location</option>
+                             </select>
+                         </form>
+                     </div>
+                     <div class="Accept">
+                         <div class="item">
+                             <p>Set as default shipping address</p>
+                             <input type="checkbox" id="toggle_today_summary_set" name="" value="">
+                             <div class="toggle">
+                                 <label for="toggle_today_summary_set"><i></i></label>
+                             </div>
+                         </div>
+                     </div>
+                     <input type="button" name="submit" onclick="UpdateShippingAddressValidation()" value="Submit" class="Register submitbutton" ; />
+                 </div>
+                 <div class="panel" data-title="Thank you" id="ThankyouPage">
+                     <div class="ThankyouPanel">
+                         <div class="OrderSuccess">
+                             <center><img src="img/OrderSuccess.png" /></center>
+                         </div>
+                         <div class="ThankyouTitle">Order Confirmed</div>
+                         <div class="ThankyouTitle sub">Your order from <strong>Greenmart</strong> will arrive at 3.00 - 8.00 PM</div>
+                         <div class="ThankyouOrder">Order number: <span id=OrderNumber></span></div>
+                         <div class="OrderDetails"><a href="#TrackOrderDetails_ThankYou" id="OrderLink"><img src="img/TrackMyOrder.png" /></a></div>
+                         <div class="CountinouShopping">
+                             <a href="#HomePage" class="btnShopping">CONTINUE SHOPPING</a>
+                         </div>
+                         <div class="Breakline"></div>
+                         <div class="FBShare">
+                             <img src="img/FacebookShare.png" />
+                         </div>
+                         <div class="TwitterShare">
+                             <img src="img/TwitterShare.png" />
+                         </div>
+                     </div>
+                 </div>
+                 <div id=CategoryViewPages></div>
+             </div>
+         <nav id="left" class="totalnav">
+            <div class="view active">
+               <header class="navcolor">
+                  <h1>Category</h1>
+               </header>
+               <div class="pages leftside">
+                  <div class="panel active" id="navPage1" data-title="Foobar">
+                     <ul class="list" id="CategoryList">
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <nav id="right" class="right">
+            <div class="view active" id="LoginHide">
+               <div class="pages leftside">
+                  <div class="panel active" id="navPage1" data-title="Foobar">
+                     <div class="useravatharpanel">
+                        <div class="AvatharOuter">
+                           <div class="avathar">
+                              <a Id="ProfileEdit" href="#CustomerInfo" onclick="CustomerInformation()"  class="customerinfo edit"><i class="fa fa-check-circle" aria-hidden="true" style="color:#98ca2d;margin-left:-60px;"  ></i></a>
+                           </div>
+                        </div>
+                        <div class="profilename">
+                           <strong Id="ProfileName"></strong>
+                        </div>
+                        <div class="profilemail">
+                           <span Id="ProfileEmail"></span>
+                        </div>
+                     </div>
+                     <div id="NotloginList">
+                        <ul class="list user">
+                           <li><a href="#LoginPage"   ><i class="fa fa-user" aria-hidden="true"></i>Login/Register</a></li>
+                        </ul>
+                     </div>
+                     <div id="LoginList" style="display:none;">
+                        <ul class="list user">
+                           <li><a href="#Address_CheckoutAddressList" onclick="Address_ShippingAddressList()" ><i class="fa fa-book" aria-hidden="true"></i>Address</a></li>
+                           <li><a href="#ChangePassword" onclick=" $.afui.clearHistory();"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Change Password</a></li>
+                           <li><a href="#TrackOrder" onclick="TrackOrder()" ><i class="fa fa-truck" aria-hidden="true"></i>Track Order</a></li>
+                           <li><a href="#HomePage" onclick="Logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <footer class="FooterSection" id="IdFooter"> 
+            <a href="#HomePage" class="icon home" onclick="HomePage()" >Home</a>
+            <a href="#PromotionPage"onclick="CategoryProducts(31);" class="icon tag" >Promotions</a>
+            <a href="#RecentlyViewedPage" class="icon clock" onclick="RecentlyViewedProducts()">Recent</a>
+            <a href="#WishlistPage" class="icon heart" id="WishListBadge" onclick="WishListProducts()" >Wishlist</a>
+            <a href="#MyCartPage" class="icon basket" id="CartBadge" onclick="CartProducts()" >MyCart</a>
+         </footer>
+      </div>
+      <div class="view" data-title="Forget Password" id="ForgetPassword"> 
+         <label style="float: left;width: 100%;text-align: left;padding: 5px 0;color: #474747;">Email:</label>  
+         <input type="email" style="width:90%;margin-top:20px;margin-left:5%" name="ForgetPasswordEmail"  id="ForgetPasswordEmail"/>
+         <input type="button" style="background-color:orange;color:#fff;width:60%;;margin-left:20%" name="ForgetPasswordSubmit" id="ForgetPasswordSubmit" value="Reset My Password" />
+      </div>
+      <div id="CartBasket" class="CartBasket">    
+      </div>
+      <div id="WishListBasket" class="WishListBasket">  
+      </div>
+      <div class="page-body" id="div_Terms" style="display:none;">
+         <p><strong>Terms and Conditions</strong></p>
+         <p>Please read these terms of use carefully before using this website <a href="#">www.SedapExpress.com</a>. If you do not agree to this Terms of use you may not use this Website. By using this Website, you signify your agreement to this Terms of Use as well as the Website's Privacy Policy. This Terms of Use sets out the legally binding terms of the Services available on the Website <a href="http://www.Bamyc.com">www.Bamyc.com</a> as well as at the terms of use of this Website. This Terms of Use along with the Privacy Policy extends to both users who visit the website but do not transact business on the website users who transact business on the Website. The Company reserves the right to modify or terminate any portion of the Website or the Services offered by the Company for any reason, without notice and without liability to you or any third party. You are responsible for regularly reviewing the Terms of Use so that you will be apprised of any changes. Nothing in this Terms of Use should be construed to confer any rights to third party beneficiaries.</p>
+         <p><strong>Description of Services</strong></p>
+         <p>Some items may appear slightly larger or smaller than actual size due to screen defaults and photography techniques. Sometimes the items may be represented larger than the actual size in order to clearly show details or smaller than the actual size in order to show the entire item.</p>
+         <p><strong>Delivery</strong></p>
+         <p>At a time of purchase auto-email communication sent to customer mail ID with full invoice and product details.&nbsp;</p>
+         <p>You can communicate at <a href="mailto:contact@sedapexpress.com">contact@bamyc.com</a> or at +971 55 939 0700&nbsp;between 9am-6pm from Sunady to Thursday</p>
+         <p>Note : There can be delay caused by third party courier / postal services in product delivery.&nbsp;</p>
+         <p><strong>Return Policy</strong></p>
+         <p>SedapExpress.COM accepts the return of purchased items, if the products are below the standard.</p>
+         <p>We are unable to accept products for exchange / refund within a reasonable time of 12-24hrs for fresh items and 4-7 days for others.</p>
+         <p><strong>Disclaimer</strong></p>
+         <p>The details of the products or product specifications quoted with the product displays are only fairly approximate values. There may be minor variations in color of the actual product because of the nature of product, weather at the time of differences in display output due to lighting and digital photography and color settings and capabilities of monitors. A customer must place an order keeping in mind this minor variation in color as seen on a computer screen against the actual color of the product received. SedapExpress.com believes that all online buyers are aware that colors seen on a monitor will be slightly different as compared to the actual product ordered.</p>
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
+      </div> 
+   </body>
+</html>

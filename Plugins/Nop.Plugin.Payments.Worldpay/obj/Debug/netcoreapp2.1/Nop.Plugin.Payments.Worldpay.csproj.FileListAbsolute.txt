@@ -1,0 +1,17 @@
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Worldpay\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Worldpay.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Worldpay\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Worldpay.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Worldpay\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Worldpay.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\plugin.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\Views\Configure.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\Views\PaymentInfo.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\Views\_ViewImports.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\Views\Customer\_CreateOrUpdate.Worldpay.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\cards.jpg
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\logo.jpg
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\Nop.Plugin.Payments.Worldpay.deps.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\Nop.Plugin.Payments.Worldpay.dll
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.Worldpay\Nop.Plugin.Payments.Worldpay.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Worldpay\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Worldpay.csprojAssemblyReference.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Worldpay\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Worldpay.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Worldpay\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Worldpay.dll
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.Worldpay\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.Worldpay.pdb

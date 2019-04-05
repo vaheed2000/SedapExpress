@@ -1,0 +1,29 @@
+﻿ 
+
+
+@model IList<VendorModel>
+ 
+ 
+        <div class="vendor-grid row">
+            <div class="title sub-title col-md-12">
+            <strong>Popular restaurants</strong>
+        </div>
+            @foreach (var item in Model)
+            {
+                <div class="item-box col-xs-12 col-sm-3 col-md-3">
+                    <div class="vendor-item product-category-item">
+                        <div class="picture">
+                            <a href="@Url.RouteUrl("Vendor", new { SeName = item.SeName })" title="@item.PictureModel.Title" class="product-img">
+                                <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl" title="@item.PictureModel.Title" />
+                            </a>
+                            <div class="title">
+                                <a href="@Url.RouteUrl("Vendor", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                                    @item.Name
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+ 

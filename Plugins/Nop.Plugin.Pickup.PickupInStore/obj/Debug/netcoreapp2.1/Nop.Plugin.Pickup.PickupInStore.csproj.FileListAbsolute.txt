@@ -1,0 +1,16 @@
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\netcoreapp2.1\Nop.Plugin.Pickup.PickupInStore.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\netcoreapp2.1\Nop.Plugin.Pickup.PickupInStore.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\netcoreapp2.1\Nop.Plugin.Pickup.PickupInStore.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\plugin.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\logo.png
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Views\Configure.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Views\Create.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Views\Edit.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Views\_CreateOrUpdate.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Views\_ViewImports.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Nop.Plugin.Pickup.PickupInStore.deps.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Nop.Plugin.Pickup.PickupInStore.dll
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Nop.Plugin.Pickup.PickupInStore.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\netcoreapp2.1\Nop.Plugin.Pickup.PickupInStore.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\netcoreapp2.1\Nop.Plugin.Pickup.PickupInStore.dll
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\netcoreapp2.1\Nop.Plugin.Pickup.PickupInStore.pdb

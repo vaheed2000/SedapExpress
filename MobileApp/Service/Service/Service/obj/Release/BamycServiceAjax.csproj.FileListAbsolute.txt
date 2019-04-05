@@ -1,0 +1,8 @@
+D:\Projects\DotNet\SedapExpress\MobileApp\Service\Service\Service\bin\BamycServiceAjax.dll.config
+D:\Projects\DotNet\SedapExpress\MobileApp\Service\Service\Service\bin\BamycServiceAjax.dll
+D:\Projects\DotNet\SedapExpress\MobileApp\Service\Service\Service\bin\BamycServiceAjax.pdb
+D:\Projects\DotNet\SedapExpress\MobileApp\Service\Service\Service\obj\Release\BamycServiceAjax.csprojAssemblyReference.cache
+D:\Projects\DotNet\SedapExpress\MobileApp\Service\Service\Service\obj\Release\BamycServiceAjax.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\MobileApp\Service\Service\Service\obj\Release\BamycServiceAjax.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\MobileApp\Service\Service\Service\obj\Release\BamycServiceAjax.dll
+D:\Projects\DotNet\SedapExpress\MobileApp\Service\Service\Service\obj\Release\BamycServiceAjax.pdb

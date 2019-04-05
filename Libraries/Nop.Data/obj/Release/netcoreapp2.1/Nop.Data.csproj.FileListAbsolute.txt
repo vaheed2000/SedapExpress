@@ -1,0 +1,12 @@
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\bin\Release\netcoreapp2.1\Nop.Data.deps.json
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\bin\Release\netcoreapp2.1\Nop.Data.dll
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\bin\Release\netcoreapp2.1\Nop.Data.pdb
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\bin\Release\netcoreapp2.1\Nop.Core.dll
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\bin\Release\netcoreapp2.1\Nop.Core.pdb
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\obj\Release\netcoreapp2.1\Nop.Data.csprojAssemblyReference.cache
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\obj\Release\netcoreapp2.1\Nop.Data.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\obj\Release\netcoreapp2.1\Nop.Data.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\obj\Release\netcoreapp2.1\Nop.Data.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\obj\Release\netcoreapp2.1\Nop.Data.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\obj\Release\netcoreapp2.1\Nop.Data.dll
+D:\Projects\DotNet\SedapExpress\Libraries\Nop.Data\obj\Release\netcoreapp2.1\Nop.Data.pdb

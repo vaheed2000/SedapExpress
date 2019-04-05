@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BamycModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="AddDeliveryDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="varchar" Mode="In" />
+    <Parameter Name="Image" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="AddLogOutUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerGuid" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IpAddress" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="AddNewShippingAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="Firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="int" Mode="In" />
+    <Parameter Name="CustomAttributes" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="StateProvinceId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AddToCartFromWishlist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ShoppingCartId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddToWishlist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddTracking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="Latitude" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Longitude" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="BestSellingProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="count" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="BestSellingProducts_CartUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="count" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CartAmountTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CartItemNumberUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CheckOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderGuid" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="OrderItemGuid" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="ShippingAddressId" Type="int" Mode="In" />
+    <Parameter Name="PaymentMethod" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CustomerInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CustomerInfoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="StreetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="StateProvinceId" Type="int" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CustomerLoginRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="int" Mode="In" />
+    <Parameter Name="StreetAddress" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="StateProvinceId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CustomerGuid" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="CustomerShippingAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteGuests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OnlyWithoutShoppingCart" Type="bit" Mode="In" />
+    <Parameter Name="CreatedFromUtc" Type="datetime" Mode="In" />
+    <Parameter Name="CreatedToUtc" Type="datetime" Mode="In" />
+    <Parameter Name="TotalRecordsDeleted" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="DeleteProductFromCart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductFromWishlist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProofAndSignature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteShippingAddressById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeliveryOrderStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DutyAddUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="DutyStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="DutyON" Type="nvarchar" Mode="In" />
+    <Parameter Name="DutyOFF" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FullText_Disable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FullText_Enable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FullText_IsSupported" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllAreas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CountryId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAllCartedItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllCategoryProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllCategoryProducts_Quantity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllSearchedProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchingData" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllSearchedProducts_CartUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchingData" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageNumber" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllWishlistItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCustomerByEmailId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetCustomerByUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetCustomerNameByCustomerId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetOfferProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Count" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetOfferProduct_CartUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Count" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetOrderBillingAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getOrderedProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetOrderProof" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetOrderShippingAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetOrderSignature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetOrderStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetProductById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductIds" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProductById_CartUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductIds" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProductDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProductDetails_Quantity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetShippingAddressById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetWishlistCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuestAddressRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="int" Mode="In" />
+    <Parameter Name="StreetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="StateProvinceId" Type="nvarchar" Mode="In" />
+    <Parameter Name="IpAddress" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CustomAttributes" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CustomerGuid" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="HighPriceProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="count" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="HighPriceProducts_CartUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="count" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LanguagePackImport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="XmlPackage" Type="xml" Mode="In" />
+  </Function>
+  <Function Name="LowPriceProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="count" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LowPriceProducts_CartUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="count" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="nop_getnotnullnotempty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar(max)">
+    <Parameter Name="p1" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="p2" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="nop_getprimarykey_indexname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="table_name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="nop_splitstring_to_table" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="string" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="delimiter" Type="char" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="data" Type="nvarchar(max)" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="OrderAmountTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OrderlyDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderStatusId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OrderProductDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PasswordValidation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ProductLoadAllPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryIds" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ManufacturerId" Type="int" Mode="In" />
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="VendorId" Type="int" Mode="In" />
+    <Parameter Name="WarehouseId" Type="int" Mode="In" />
+    <Parameter Name="ProductTypeId" Type="int" Mode="In" />
+    <Parameter Name="VisibleIndividuallyOnly" Type="bit" Mode="In" />
+    <Parameter Name="MarkedAsNewOnly" Type="bit" Mode="In" />
+    <Parameter Name="ProductTagId" Type="int" Mode="In" />
+    <Parameter Name="FeaturedProducts" Type="bit" Mode="In" />
+    <Parameter Name="PriceMin" Type="decimal" Mode="In" />
+    <Parameter Name="PriceMax" Type="decimal" Mode="In" />
+    <Parameter Name="Keywords" Type="nvarchar" Mode="In" />
+    <Parameter Name="SearchDescriptions" Type="bit" Mode="In" />
+    <Parameter Name="SearchSku" Type="bit" Mode="In" />
+    <Parameter Name="SearchProductTags" Type="bit" Mode="In" />
+    <Parameter Name="UseFullTextSearch" Type="bit" Mode="In" />
+    <Parameter Name="FullTextMode" Type="int" Mode="In" />
+    <Parameter Name="FilteredSpecs" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="OrderBy" Type="int" Mode="In" />
+    <Parameter Name="AllowedCustomerRoleIds" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageIndex" Type="int" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="ShowHidden" Type="bit" Mode="In" />
+    <Parameter Name="OverridePublished" Type="bit" Mode="In" />
+    <Parameter Name="LoadFilterableSpecificationAttributeOptionIds" Type="bit" Mode="In" />
+    <Parameter Name="FilterableSpecificationAttributeOptionIds" Type="nvarchar(max)" Mode="InOut" />
+    <Parameter Name="TotalRecords" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="ProductTagCountLoadAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SaveAddressInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="StreetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="StateProvinceId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="int" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CustomerGuid" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="DisplayOrder" Type="int" Mode="In" />
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SearchProductsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SetDeliveryProof" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="FileName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ShoppingCartAddItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+    <Parameter Name="ShoppingcartId" Type="int" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="From" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ShoppingCartCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ShoppingCartSynchronization" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LogInCustomerId" Type="int" Mode="In" />
+    <Parameter Name="LogOutCustomerId" Type="int" Mode="In" />
+    <Parameter Name="shoppingcarttypeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TrackingInformations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="Latitude" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Longitude" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Altitude" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Accuracy" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Altitude_Accuracy" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Heading" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Speed" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Timestamp" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IMEI" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="TrackOrderDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdateAddressInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="Firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="StreetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="Country" Type="nvarchar" Mode="In" />
+    <Parameter Name="Area" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="int" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="UpdateOrderedProductDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="Sku" Type="nvarchar" Mode="In" />
+    <Parameter Name="ItemWeight" Type="decimal" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="decimal" Mode="In" />
+    <Parameter Name="TotalPrice" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="UpdateOrderInvoic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="InvNo" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="UpdateOrderInvoicItemPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvNo" Type="bigint" Mode="In" />
+    <Parameter Name="Qty" Type="decimal" Mode="In" />
+    <Parameter Name="SellingPrice" Type="decimal" Mode="In" />
+    <Parameter Name="ProductCost" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="UpdateOrderInvoicPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvNo" Type="bigint" Mode="In" />
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="OrderSubtotalInclTax" Type="decimal" Mode="In" />
+    <Parameter Name="OrderSubtotalExclTax" Type="decimal" Mode="In" />
+    <Parameter Name="OrderTotal" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="UpdateOrderStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderId" Type="int" Mode="In" />
+    <Parameter Name="OrderStatus" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdatePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateShippingAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PhoneNumber" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CustomAttributes" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="StateProvinceId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="WishListItemNumberUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="ProductId" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="int" Mode="In" />
+  </Function>
+  <Function Name="WishlistSynchronization" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LogInCustomerId" Type="int" Mode="In" />
+    <Parameter Name="LogOutCustomerId" Type="int" Mode="In" />
+    <Parameter Name="shoppingcarttypeId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="BamycModelStoreContainer" />
+</Schema>

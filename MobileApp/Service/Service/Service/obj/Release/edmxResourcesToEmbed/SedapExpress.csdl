@@ -1,0 +1,962 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SedapExpressModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="fnSplitString_Result">
+    <Property Name="splitdata" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <ComplexType Name="nop_splitstring_to_table_Result">
+    <Property Name="data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <ComplexType Name="Split_Result">
+    <Property Name="Item" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <EntityContainer Name="SedapExpressEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="fnSplitString" IsComposable="true" ReturnType="Collection(SedapExpressModel.fnSplitString_Result)">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="delimiter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="nop_splitstring_to_table" IsComposable="true" ReturnType="Collection(SedapExpressModel.nop_splitstring_to_table_Result)">
+      <Parameter Name="string" Mode="In" Type="String" />
+      <Parameter Name="delimiter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Split" IsComposable="true" ReturnType="Collection(SedapExpressModel.Split_Result)">
+      <Parameter Name="InputString" Mode="In" Type="String" />
+      <Parameter Name="Delimiter" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddDeliveryDetails">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="Image" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddLogOutUser" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerGuid" Mode="In" Type="Guid" />
+      <Parameter Name="IpAddress" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddNewShippingAddress" ReturnType="Collection(Decimal)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Firstname" Mode="In" Type="String" />
+      <Parameter Name="Lastname" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="Int32" />
+      <Parameter Name="CustomAttributes" Mode="In" Type="String" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="StateProvinceId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddToCartFromWishlist">
+      <Parameter Name="ShoppingCartId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddToWishlist">
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddTracking">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Latitude" Mode="In" Type="String" />
+      <Parameter Name="Longitude" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddUserInfo">
+      <Parameter Name="Firstname" Mode="In" Type="String" />
+      <Parameter Name="Lastname" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="StreetAddress" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="BestSellingProducts" ReturnType="Collection(SedapExpressModel.BestSellingProducts_Result)">
+      <Parameter Name="count" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="BestSellingProducts_CartUpdate" ReturnType="Collection(SedapExpressModel.BestSellingProducts_CartUpdate_Result)">
+      <Parameter Name="count" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CartAmountTotal" ReturnType="Collection(SedapExpressModel.CartAmountTotal_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CartItemNumberUpdate" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+      <Parameter Name="Type" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CategoryLoadAllPaged">
+      <Parameter Name="ShowHidden" Mode="In" Type="Boolean" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerRoleIds" Mode="In" Type="String" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="TotalRecords" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CheckOut" ReturnType="Collection(Int32)">
+      <Parameter Name="OrderGuid" Mode="In" Type="Guid" />
+      <Parameter Name="OrderItemGuid" Mode="In" Type="Guid" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="ShippingAddressId" Mode="In" Type="Int32" />
+      <Parameter Name="PaymentMethod" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="count_item" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="count_items" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="countitems" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="countproducts" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerInfoUpdate">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="StreetAddress" Mode="In" Type="String" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="StateProvinceId" Mode="In" Type="Int32" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerLoginRegistration" ReturnType="Collection(String)">
+      <Parameter Name="Firstname" Mode="In" Type="String" />
+      <Parameter Name="Lastname" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="Int32" />
+      <Parameter Name="StreetAddress" Mode="In" Type="String" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="StateProvinceId" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="CustomerGuid" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerName" ReturnType="Collection(String)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerShippingAddress" ReturnType="Collection(SedapExpressModel.CustomerShippingAddress_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteGuests">
+      <Parameter Name="OnlyWithoutShoppingCart" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedFromUtc" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedToUtc" Mode="In" Type="DateTime" />
+      <Parameter Name="TotalRecordsDeleted" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteProductFromCart">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteProductFromWishlist">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteProofAndSignature">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteShippingAddressById">
+      <Parameter Name="AddressId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeliveryOrderStatus" ReturnType="Collection(SedapExpressModel.DeliveryOrderStatus_Result)" />
+    <FunctionImport Name="DutyAddUpdate">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="DutyStatus" Mode="In" Type="String" />
+      <Parameter Name="DutyON" Mode="In" Type="String" />
+      <Parameter Name="DutyOFF" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FullText_Disable" />
+    <FunctionImport Name="FullText_Enable" />
+    <FunctionImport Name="FullText_IsSupported" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="GetAllAddress" ReturnType="Collection(SedapExpressModel.GetAllAddress_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllAreas" ReturnType="Collection(SedapExpressModel.GetAllAreas_Result)">
+      <Parameter Name="CountryId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCartedItems" ReturnType="Collection(SedapExpressModel.GetAllCartedItems_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCategories" ReturnType="Collection(SedapExpressModel.GetAllCategories_Result)" />
+    <FunctionImport Name="GetAllCategoryProducts" ReturnType="Collection(SedapExpressModel.GetAllCategoryProducts_Result)">
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCategoryProducts_Quantity" ReturnType="Collection(SedapExpressModel.GetAllCategoryProducts_Quantity_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCountries" ReturnType="Collection(SedapExpressModel.GetAllCountries_Result)" />
+    <FunctionImport Name="GetAllDeliverySlots">
+      <Parameter Name="AreaId" Mode="In" Type="Int32" />
+      <Parameter Name="TotalDays" Mode="In" Type="Int32" />
+      <Parameter Name="Image" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllLocations" />
+    <FunctionImport Name="GetAllMainMenus" ReturnType="Collection(SedapExpressModel.GetAllMainMenus_Result)" />
+    <FunctionImport Name="GetAllOrderDelivery" ReturnType="Collection(SedapExpressModel.GetAllOrderDelivery_Result)" />
+    <FunctionImport Name="GetAllOrderItemDetails" ReturnType="Collection(SedapExpressModel.GetAllOrderItemDetails_Result)">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllOrderStatus" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="OrderStatusId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllPendingInvoice" ReturnType="Collection(SedapExpressModel.GetAllPendingInvoice_Result)" />
+    <FunctionImport Name="GetAllProducts" ReturnType="Collection(SedapExpressModel.GetAllProducts_Result)">
+      <Parameter Name="SearchingData" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllProductsBarcode" ReturnType="Collection(String)" />
+    <FunctionImport Name="GetAllSearchedProducts" ReturnType="Collection(SedapExpressModel.GetAllSearchedProducts_Result)">
+      <Parameter Name="SearchingData" Mode="In" Type="String" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllSearchedProducts_CartUpdate" ReturnType="Collection(SedapExpressModel.GetAllSearchedProducts_CartUpdate_Result)">
+      <Parameter Name="SearchingData" Mode="In" Type="String" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllSubMenus" ReturnType="Collection(SedapExpressModel.GetAllSubMenus_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllWishlistItems" ReturnType="Collection(SedapExpressModel.GetAllWishlistItems_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCartWishlistCount" ReturnType="Collection(SedapExpressModel.GetCartWishlistCount_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerByEmailId" ReturnType="Collection(SedapExpressModel.GetCustomerByEmailId_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerById" />
+    <FunctionImport Name="GetCustomerByUsername" ReturnType="Collection(SedapExpressModel.GetCustomerByUsername_Result)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerNameByCustomerId" ReturnType="Collection(String)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomerOrderAddress" ReturnType="Collection(SedapExpressModel.GetCustomerOrderAddress_Result)">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetOfferProduct" ReturnType="Collection(SedapExpressModel.GetOfferProduct_Result)">
+      <Parameter Name="Count" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetOfferProduct_CartUpdate" ReturnType="Collection(SedapExpressModel.GetOfferProduct_CartUpdate_Result)">
+      <Parameter Name="Count" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrderBillingAddress" ReturnType="Collection(SedapExpressModel.GetOrderBillingAddress_Result)">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrderDetailsByStatus">
+      <Parameter Name="PageNumber" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="OrderStatusId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getOrderedProducts" ReturnType="Collection(SedapExpressModel.getOrderedProducts_Result)">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrderShippingAddress" ReturnType="Collection(SedapExpressModel.GetOrderShippingAddress_Result)">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrderSignature" ReturnType="Collection(SedapExpressModel.GetOrderSignature_Result)">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrderStatus" ReturnType="Collection(SedapExpressModel.GetOrderStatus_Result)" />
+    <FunctionImport Name="GetProductDetails" ReturnType="Collection(SedapExpressModel.GetProductDetails_Result)">
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetProductDetails_Quantity" ReturnType="Collection(SedapExpressModel.GetProductDetails_Quantity_Result)">
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetShippingAddressById" ReturnType="Collection(SedapExpressModel.GetShippingAddressById_Result)">
+      <Parameter Name="AddressId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GuestAddressRegistration">
+      <Parameter Name="Firstname" Mode="In" Type="String" />
+      <Parameter Name="Lastname" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="Int32" />
+      <Parameter Name="StreetAddress" Mode="In" Type="String" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="StateProvinceId" Mode="In" Type="String" />
+      <Parameter Name="IpAddress" Mode="In" Type="String" />
+      <Parameter Name="CustomAttributes" Mode="In" Type="String" />
+      <Parameter Name="CustomerGuid" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="HighPriceProducts" ReturnType="Collection(SedapExpressModel.HighPriceProducts_Result)">
+      <Parameter Name="count" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="HighPriceProducts_CartUpdate" ReturnType="Collection(SedapExpressModel.HighPriceProducts_CartUpdate_Result)">
+      <Parameter Name="count" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LanguagePackImport">
+      <Parameter Name="LanguageId" Mode="In" Type="Int32" />
+      <Parameter Name="XmlPackage" Mode="In" Type="String" />
+      <Parameter Name="UpdateExistingResources" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="login_procedure" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="loginprocedure" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LowPriceProducts" ReturnType="Collection(SedapExpressModel.LowPriceProducts_Result)">
+      <Parameter Name="count" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LowPriceProducts_CartUpdate" ReturnType="Collection(SedapExpressModel.LowPriceProducts_CartUpdate_Result)">
+      <Parameter Name="count" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Order_Item" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OrderAmountTotal" ReturnType="Collection(SedapExpressModel.OrderAmountTotal_Result)">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OrderlyDetails" ReturnType="Collection(SedapExpressModel.OrderlyDetails_Result)">
+      <Parameter Name="OrderStatusId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OrderProductDetails" ReturnType="Collection(SedapExpressModel.OrderProductDetails_Result)">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PasswordValidation" ReturnType="Collection(SedapExpressModel.PasswordValidation_Result)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ProductLoadAllPaged">
+      <Parameter Name="CategoryIds" Mode="In" Type="String" />
+      <Parameter Name="ManufacturerId" Mode="In" Type="Int32" />
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="VendorId" Mode="In" Type="Int32" />
+      <Parameter Name="WarehouseId" Mode="In" Type="Int32" />
+      <Parameter Name="ProductTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="VisibleIndividuallyOnly" Mode="In" Type="Boolean" />
+      <Parameter Name="MarkedAsNewOnly" Mode="In" Type="Boolean" />
+      <Parameter Name="ProductTagId" Mode="In" Type="Int32" />
+      <Parameter Name="FeaturedProducts" Mode="In" Type="Boolean" />
+      <Parameter Name="PriceMin" Mode="In" Type="Decimal" />
+      <Parameter Name="PriceMax" Mode="In" Type="Decimal" />
+      <Parameter Name="Keywords" Mode="In" Type="String" />
+      <Parameter Name="SearchDescriptions" Mode="In" Type="Boolean" />
+      <Parameter Name="SearchManufacturerPartNumber" Mode="In" Type="Boolean" />
+      <Parameter Name="SearchSku" Mode="In" Type="Boolean" />
+      <Parameter Name="SearchProductTags" Mode="In" Type="Boolean" />
+      <Parameter Name="UseFullTextSearch" Mode="In" Type="Boolean" />
+      <Parameter Name="FullTextMode" Mode="In" Type="Int32" />
+      <Parameter Name="FilteredSpecs" Mode="In" Type="String" />
+      <Parameter Name="LanguageId" Mode="In" Type="Int32" />
+      <Parameter Name="OrderBy" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCustomerRoleIds" Mode="In" Type="String" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="ShowHidden" Mode="In" Type="Boolean" />
+      <Parameter Name="OverridePublished" Mode="In" Type="Boolean" />
+      <Parameter Name="LoadFilterableSpecificationAttributeOptionIds" Mode="In" Type="Boolean" />
+      <Parameter Name="FilterableSpecificationAttributeOptionIds" Mode="InOut" Type="String" />
+      <Parameter Name="TotalRecords" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProductTagCountLoadAll" ReturnType="Collection(SedapExpressModel.ProductTagCountLoadAll_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchProductsList" ReturnType="Collection(SedapExpressModel.SearchProductsList_Result)" />
+    <FunctionImport Name="SetDeliveryProof">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="FileName" Mode="In" Type="String" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ShoppingCartAddItem">
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+      <Parameter Name="ShoppingcartId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="From" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ShoppingCartCount" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ShoppingCartSynchronization">
+      <Parameter Name="LogInCustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="LogOutCustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="shoppingcarttypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SyncProductsQty">
+      <Parameter Name="Qty" Mode="In" Type="Double" />
+      <Parameter Name="Barcode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="test" ReturnType="Collection(String)" />
+    <FunctionImport Name="TrackingInformations">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="Latitude" Mode="In" Type="String" />
+      <Parameter Name="Longitude" Mode="In" Type="String" />
+      <Parameter Name="Altitude" Mode="In" Type="String" />
+      <Parameter Name="Accuracy" Mode="In" Type="String" />
+      <Parameter Name="Altitude_Accuracy" Mode="In" Type="String" />
+      <Parameter Name="Heading" Mode="In" Type="String" />
+      <Parameter Name="Speed" Mode="In" Type="String" />
+      <Parameter Name="Timestamp" Mode="In" Type="String" />
+      <Parameter Name="IMEI" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TrackOrderDetails" ReturnType="Collection(SedapExpressModel.TrackOrderDetails_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateAddressInfo">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Firstname" Mode="In" Type="String" />
+      <Parameter Name="Lastname" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="StreetAddress" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="Area" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="Int32" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateDeliveryStatus">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOrderedProductDetails">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="Sku" Mode="In" Type="String" />
+      <Parameter Name="ItemWeight" Mode="In" Type="Decimal" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+      <Parameter Name="TotalPrice" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOrderInvoic">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="InvNo" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOrderInvoiceStatus">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOrderInvoicItemPrice">
+      <Parameter Name="InvNo" Mode="In" Type="Int64" />
+      <Parameter Name="Barcode" Mode="In" Type="String" />
+      <Parameter Name="Qty" Mode="In" Type="Decimal" />
+      <Parameter Name="SellingPrice" Mode="In" Type="Decimal" />
+      <Parameter Name="ProductCost" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOrderInvoicPrice">
+      <Parameter Name="InvNo" Mode="In" Type="Int64" />
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="OrderSubtotalInclTax" Mode="In" Type="Decimal" />
+      <Parameter Name="OrderSubtotalExclTax" Mode="In" Type="Decimal" />
+      <Parameter Name="OrderTotal" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOrderSlot">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="DeliveryDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Slot" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOrderStatus">
+      <Parameter Name="OrderId" Mode="In" Type="Int32" />
+      <Parameter Name="OrderStatus" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdatePassword">
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateShippingAddress">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="CustomAttributes" Mode="In" Type="String" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="StateProvinceId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="WishListItemNumberUpdate" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="ProductId" Mode="In" Type="Int32" />
+      <Parameter Name="Type" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="WishlistSynchronization">
+      <Parameter Name="LogInCustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="LogOutCustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="shoppingcarttypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetWishlistCount" ReturnType="Collection(Int32)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerInfo" ReturnType="Collection(SedapExpressModel.CustomerInfo_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SaveAddressInfo">
+      <Parameter Name="SaltKey" Mode="In" Type="String" />
+      <Parameter Name="Firstname" Mode="In" Type="String" />
+      <Parameter Name="Lastname" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="StreetAddress" Mode="In" Type="String" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="StateProvinceId" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="Int32" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="CustomerGuid" Mode="In" Type="Guid" />
+      <Parameter Name="DisplayOrder" Mode="In" Type="Int32" />
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetProductById" ReturnType="Collection(SedapExpressModel.GetProductById_Result)">
+      <Parameter Name="ProductIds" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetProductById_CartUpdate" ReturnType="Collection(SedapExpressModel.GetProductById_CartUpdate_Result)">
+      <Parameter Name="ProductIds" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="BestSellingProducts_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="BestSellingProducts_CartUpdate_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CartAmountTotal_Result">
+    <Property Type="Decimal" Name="SubTotal" Nullable="true" Precision="38" Scale="4" />
+    <Property Type="Int32" Name="Shippingcost" Nullable="false" />
+    <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="38" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="CustomerShippingAddress_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" />
+    <Property Type="String" Name="LastName" Nullable="true" />
+    <Property Type="String" Name="Address1" Nullable="true" />
+    <Property Type="String" Name="Address2" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="Phone_Number" Nullable="true" />
+    <Property Type="String" Name="CustomAttributes" Nullable="true" />
+    <Property Type="String" Name="Area" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Country" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="DeliveryOrderStatus_Result">
+    <Property Type="Int32" Name="OrderStatusID" Nullable="false" />
+    <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="StatusCount" Nullable="true" />
+    <Property Type="String" Name="ProcessID" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsUpdateStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllAddress_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" />
+    <Property Type="String" Name="LastName" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllAreas_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAllCartedItems_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="29" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="GetAllCategories_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="Picture" Nullable="true" MaxLength="495" />
+  </ComplexType>
+  <ComplexType Name="GetAllCategoryProducts_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllCategoryProducts_Quantity_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Int32" Name="ShoppingCartTypeId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllCountries_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="Boolean" Name="AllowsBilling" Nullable="false" />
+    <Property Type="Boolean" Name="AllowsShipping" Nullable="false" />
+    <Property Type="String" Name="TwoLetterIsoCode" Nullable="true" MaxLength="2" />
+    <Property Type="String" Name="ThreeLetterIsoCode" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="NumericIsoCode" Nullable="false" />
+    <Property Type="Boolean" Name="SubjectToVat" Nullable="false" />
+    <Property Type="Boolean" Name="Published" Nullable="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <Property Type="Boolean" Name="LimitedToStores" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetAllMainMenus_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Slug" Nullable="false" MaxLength="400" />
+  </ComplexType>
+  <ComplexType Name="GetAllOrderDelivery_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="Boolean" Name="Deleted" Nullable="true" />
+    <Property Type="Boolean" Name="Published" Nullable="true" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="true" />
+    <Property Type="Boolean" Name="LimitedToStore" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllOrderItemDetails_Result">
+    <Property Type="Int32" Name="OrderItemId" Nullable="true" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="GetAllPendingInvoice_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="InvNo" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetAllProducts_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="ShortDescription" Nullable="true" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="GetAllSearchedProducts_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllSearchedProducts_CartUpdate_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetAllSubMenus_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Url" Nullable="false" MaxLength="400" />
+  </ComplexType>
+  <ComplexType Name="GetAllWishlistItems_Result">
+    <Property Type="Int32" Name="ShoppingCartId" Nullable="true" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="29" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="GetCartWishlistCount_Result">
+    <Property Type="Int32" Name="CartCount" Nullable="true" />
+    <Property Type="Int32" Name="WhishlistCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetCustomerByEmailId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CustomerGuid" Nullable="false" />
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="Int32" Name="PasswordFormatId" Nullable="false" />
+    <Property Type="String" Name="PasswordSalt" Nullable="true" />
+    <Property Type="String" Name="AdminComment" Nullable="true" />
+    <Property Type="Boolean" Name="IsTaxExempt" Nullable="false" />
+    <Property Type="Int32" Name="AffiliateId" Nullable="false" />
+    <Property Type="Int32" Name="VendorId" Nullable="false" />
+    <Property Type="Boolean" Name="HasShoppingCartItems" Nullable="false" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" Nullable="false" />
+    <Property Type="Boolean" Name="IsSystemAccount" Nullable="false" />
+    <Property Type="String" Name="SystemName" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="LastIpAddress" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOnUtc" Nullable="false" />
+    <Property Type="DateTime" Name="LastLoginDateUtc" Nullable="true" />
+    <Property Type="DateTime" Name="LastActivityDateUtc" Nullable="false" />
+    <Property Type="Int32" Name="BillingAddress_Id" Nullable="true" />
+    <Property Type="Int32" Name="ShippingAddress_Id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetCustomerByUsername_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CustomerGuid" Nullable="false" />
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="Int32" Name="PasswordFormatId" Nullable="false" />
+    <Property Type="String" Name="PasswordSalt" Nullable="true" />
+    <Property Type="String" Name="AdminComment" Nullable="true" />
+    <Property Type="Boolean" Name="IsTaxExempt" Nullable="false" />
+    <Property Type="Int32" Name="AffiliateId" Nullable="false" />
+    <Property Type="Int32" Name="VendorId" Nullable="false" />
+    <Property Type="Boolean" Name="HasShoppingCartItems" Nullable="false" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" Nullable="false" />
+    <Property Type="Boolean" Name="IsSystemAccount" Nullable="false" />
+    <Property Type="String" Name="SystemName" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="LastIpAddress" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOnUtc" Nullable="false" />
+    <Property Type="DateTime" Name="LastLoginDateUtc" Nullable="true" />
+    <Property Type="DateTime" Name="LastActivityDateUtc" Nullable="false" />
+    <Property Type="Int32" Name="BillingAddress_Id" Nullable="true" />
+    <Property Type="Int32" Name="ShippingAddress_Id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetCustomerOrderAddress_Result">
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" />
+    <Property Type="String" Name="CustomAttributes" Nullable="true" />
+    <Property Type="String" Name="Country" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Area" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetOfferProduct_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetOfferProduct_CartUpdate_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetOrderBillingAddress_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" />
+    <Property Type="String" Name="CustomAttribute" Nullable="true" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="getOrderedProducts_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="GetOrderShippingAddress_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" />
+    <Property Type="String" Name="CustomAttribute" Nullable="true" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetOrderSignature_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetOrderStatus_Result">
+    <Property Type="Int32" Name="OrderStatusID" Nullable="false" />
+    <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="StatusCount" Nullable="true" />
+    <Property Type="String" Name="ProcessID" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsUpdateStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetProductDetails_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="String" Name="ShortDescription" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetProductDetails_Quantity_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetShippingAddressById_Result">
+    <Property Type="String" Name="FirstName" Nullable="true" />
+    <Property Type="String" Name="LastName" Nullable="true" />
+    <Property Type="String" Name="Address1" Nullable="true" />
+    <Property Type="String" Name="Address2" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="Phone_Number" Nullable="true" />
+    <Property Type="String" Name="CustomAttributes" Nullable="true" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="Int32" Name="StateProvinceId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="HighPriceProducts_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="HighPriceProducts_CartUpdate_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LowPriceProducts_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LowPriceProducts_CartUpdate_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="OrderAmountTotal_Result">
+    <Property Type="Decimal" Name="SubTotal" Nullable="true" Precision="38" Scale="4" />
+    <Property Type="Int32" Name="Shippingcost" Nullable="false" />
+    <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="38" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="OrderlyDetails_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="ShippingAddressId" Nullable="true" />
+    <Property Type="Decimal" Name="OrderTotal" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="DateTime" Name="CreatedOnUtc" Nullable="false" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" />
+    <Property Type="Int32" Name="InvNo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="OrderProductDetails_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="Sku" Nullable="true" MaxLength="400" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="29" Scale="4" />
+    <Property Type="String" Name="PaymentMethodSystemName" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PasswordValidation_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CustomerGuid" Nullable="false" />
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="EmailToRevalidate" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="AdminComment" Nullable="true" />
+    <Property Type="Boolean" Name="IsTaxExempt" Nullable="false" />
+    <Property Type="Int32" Name="AffiliateId" Nullable="false" />
+    <Property Type="Int32" Name="VendorId" Nullable="false" />
+    <Property Type="Boolean" Name="HasShoppingCartItems" Nullable="false" />
+    <Property Type="Boolean" Name="RequireReLogin" Nullable="false" />
+    <Property Type="Int32" Name="FailedLoginAttempts" Nullable="false" />
+    <Property Type="DateTime" Name="CannotLoginUntilDateUtc" Nullable="true" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" Nullable="false" />
+    <Property Type="Boolean" Name="IsSystemAccount" Nullable="false" />
+    <Property Type="String" Name="SystemName" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="LastIpAddress" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOnUtc" Nullable="false" />
+    <Property Type="DateTime" Name="LastLoginDateUtc" Nullable="true" />
+    <Property Type="DateTime" Name="LastActivityDateUtc" Nullable="false" />
+    <Property Type="Int32" Name="RegisteredInStoreId" Nullable="false" />
+    <Property Type="Int32" Name="BillingAddress_Id" Nullable="true" />
+    <Property Type="Int32" Name="ShippingAddress_Id" Nullable="true" />
+    <Property Type="Int32" Name="Id1" Nullable="false" />
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="Int32" Name="PasswordFormatId" Nullable="false" />
+    <Property Type="String" Name="PasswordSalt" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOnUtc1" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ProductTagCountLoadAll_Result">
+    <Property Type="Int32" Name="ProductTagId" Nullable="false" />
+    <Property Type="Int32" Name="ProductCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SearchProductsList_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="400" />
+  </ComplexType>
+  <ComplexType Name="TrackOrderDetails_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="OrderStatusId" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedOnUtc" Nullable="false" />
+    <Property Type="Decimal" Name="OrderTotal" Nullable="false" Precision="18" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="CustomerInfo_Result">
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="StreetAddress" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="CountryId" Nullable="false" />
+    <Property Type="Int32" Name="StateProvinceId" Nullable="false" />
+    <Property Type="String" Name="Phone" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Picture" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="GetProductById_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Sku" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="2" Scale="2" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="2" Scale="2" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="false" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetProductById_CartUpdate_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Sku" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="2" Scale="2" />
+    <Property Type="Decimal" Name="OldPrice" Nullable="false" Precision="2" Scale="2" />
+    <Property Type="Int32" Name="OfferPercentage" Nullable="false" />
+    <Property Type="Int32" Name="Quantity" Nullable="false" />
+  </ComplexType>
+</Schema>

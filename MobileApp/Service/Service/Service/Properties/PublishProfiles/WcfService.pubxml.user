@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Projects\DotNet\SedapExpress\MobileApp\Service\Service\publish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Address.svc">
+      <publishTime>04/27/2017 09:56:03</publishTime>
+    </File>
+    <File Include="Bamyc.Context.cs">
+      <publishTime>04/28/2017 15:07:03</publishTime>
+    </File>
+    <File Include="Bamyc.Context.tt">
+      <publishTime>04/25/2017 19:55:22</publishTime>
+    </File>
+    <File Include="Bamyc.cs">
+      <publishTime>04/27/2017 18:33:23</publishTime>
+    </File>
+    <File Include="Bamyc.Designer.cs">
+      <publishTime>04/27/2017 18:33:23</publishTime>
+    </File>
+    <File Include="Bamyc.edmx">
+      <publishTime>04/27/2017 18:33:18</publishTime>
+    </File>
+    <File Include="Bamyc.edmx.diagram">
+      <publishTime>05/01/2017 11:12:20</publishTime>
+    </File>
+    <File Include="Bamyc.tt">
+      <publishTime>04/25/2017 19:55:48</publishTime>
+    </File>
+    <File Include="bin/BamycServiceAjax.dll">
+      <publishTime>11/21/2018 20:09:51</publishTime>
+    </File>
+    <File Include="bin/BamycServiceAjax.pdb">
+      <publishTime>11/21/2018 20:09:51</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>04/25/2017 19:55:26</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>04/25/2017 19:55:27</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>10/03/2013 00:40:10</publishTime>
+    </File>
+    <File Include="Category.svc">
+      <publishTime>04/26/2017 11:28:19</publishTime>
+    </File>
+    <File Include="Customer.svc">
+      <publishTime>04/20/2017 14:13:19</publishTime>
+    </File>
+    <File Include="GetAllAddress_Result.cs">
+      <publishTime>04/28/2017 15:07:05</publishTime>
+    </File>
+    <File Include="GetAllAreas_Result.cs">
+      <publishTime>04/27/2017 18:33:23</publishTime>
+    </File>
+    <File Include="GetAllCategories_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="GetAllCountries_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="GetAllMainMenus_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="GetAllOrderDelivery_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="GetAllOrderItemDetails_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="GetAllSubMenus_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="GetCartWishlistCount_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="GetCustomerOrderAddress_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="GetOrderDetailsByStatus_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="Location.svc">
+      <publishTime>04/23/2017 12:01:45</publishTime>
+    </File>
+    <File Include="Order.svc">
+      <publishTime>04/29/2017 15:22:26</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/25/2017 19:55:47</publishTime>
+    </File>
+    <File Include="Product.svc">
+      <publishTime>04/26/2017 11:41:09</publishTime>
+    </File>
+    <File Include="ProductTagCountLoadAll_Result.cs">
+      <publishTime>04/27/2017 10:22:02</publishTime>
+    </File>
+    <File Include="SedapExpress.edmx.diagram">
+      <publishTime>10/22/2018 17:38:10</publishTime>
+    </File>
+    <File Include="ShoppingCart.svc">
+      <publishTime>05/10/2017 18:29:08</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/21/2018 20:13:20</publishTime>
+    </File>
+    <File Include="Wishlist.svc">
+      <publishTime>05/11/2017 12:35:02</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

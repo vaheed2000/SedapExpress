@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="BamycServiceAjax.Category" CodeBehind="Category.svc.cs" %>

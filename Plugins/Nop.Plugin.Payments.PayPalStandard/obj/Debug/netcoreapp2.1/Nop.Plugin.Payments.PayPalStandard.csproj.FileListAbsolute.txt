@@ -1,0 +1,15 @@
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.PayPalStandard.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.PayPalStandard.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.PayPalStandard.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\plugin.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Views\Configure.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Views\PaymentInfo.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Views\_ViewImports.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\logo.jpg
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Nop.Plugin.Payments.PayPalStandard.deps.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Nop.Plugin.Payments.PayPalStandard.dll
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Nop.Plugin.Payments.PayPalStandard.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.PayPalStandard.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.PayPalStandard.dll
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.PayPalStandard.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.PayPalStandard.csprojAssemblyReference.cache

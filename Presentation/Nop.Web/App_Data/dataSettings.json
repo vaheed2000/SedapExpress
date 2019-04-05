@@ -1,0 +1,5 @@
+﻿{
+  "DataProvider": "sqlserver",
+  "DataConnectionString": "Data Source=SQL7003.site4now.net;Initial Catalog=DB_A42C6B_sedapexpress;Integrated Security=False;Persist Security Info=False;User ID=DB_A42C6B_sedapexpress_admin;Password=pass12345678",
+  "RawDataSettings": {}
+}

@@ -1,0 +1,175 @@
+header.HeaderSection {
+background: #0c577b !important;
+border-bottom: #0c577b !important;
+}
+
+.categoriessection ul li strong
+{
+  text-transform: none !important;
+color: #525151;
+font-weight: normal;
+float: left;
+width: 25%;
+text-align: left;
+padding-left: 3%;
+padding-top: 1%;
+}
+
+.categoriessection ul li span {
+font-weight: bold;
+font-size: 20px;
+padding-right: 3%;
+color: #1093de;
+float: right;
+}
+
+.categoriessection ul li a {
+font-weight: bold;
+font-size: 20px;
+padding-right: 1%;
+color: #444343;
+float: right;
+}
+
+.productdetaillist ul label {
+position: absolute;
+right: -87%;
+top: -5px;
+float: right;
+}    
+
+#OrderList
+
+{
+   float: left;
+width: 100%;
+padding: 4%;
+}
+
+.card {
+float: left;
+width: 100%;
+margin: 0;
+padding: 5%;
+margin-bottom: 4%;
+}
+.TopOrderSection {
+float: left;
+width: 100%;
+}
+.orderid {
+float: left;
+width: 20%;
+background: #f1f1f1;
+color: #3a3939;
+height: 50px;
+border-radius: 7px;
+text-align: center;
+font-size: 16px;
+padding-top: 15px;
+border: 1px solid #d2d2d2;
+}
+
+.orderdetails {
+float: left;
+width: 77%;
+margin-left: 3%;
+}
+.ordermobile {
+height: 24px;
+border-bottom: 1px solid #e7e7ea;
+    width: 100%;
+float: left;
+}
+
+.orderdateprice {
+margin-top: 5px;
+    float: left;
+width: 100%;
+}
+
+.orderdate {
+float: left;
+}
+
+.orderprice { 
+float: right;
+
+font-weight: bold;
+}
+
+div#OrderProductList input {
+width: 100%;
+
+}
+
+.imags {
+float: left;
+width: 30%;
+min-width: 30%;
+}
+
+.productdetaillist { 
+width: 66%;
+float: left;
+padding: 0;
+margin-left: 5%;
+}
+
+strong.checkouttotal {
+padding-left: 6px;
+position: relative;
+top: -5px;
+}
+
+
+a.scan {
+color: #fff;
+margin-top: 9px;
+font-size: 20px;
+    float: right;
+    margin-right: 10px;
+}
+
+
+.categoriessection ul {
+margin-top: 10px;
+    padding-left: 10px;
+padding-right: 10px;
+
+}
+
+.categoriessection ul li {
+margin: 1.001%;
+border: 1px solid #dedede;
+border-radius: 10px;
+width: 100%;
+border-right: 1px solid #dedede !important;
+min-height: 0%;
+padding: 2%;
+}
+
+div#OrderProductList {
+padding: 4%;
+}
+.method-list.images li {
+    float: left;
+    width: 22%;
+    margin: 1%;   
+}
+.addnew {
+    float: right;
+    font-size: 19px;
+    margin-right: 1%;
+}
+.Paymenttitle.text {
+    width: 90%;
+}
+.method-list.images li a img{
+   border:1px solid #a4a3a3;
+}
+.Delivery_button{
+    background:#0c577b ;
+    color:#fff;
+    font-size:100%;
+}

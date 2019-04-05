@@ -1,0 +1,15 @@
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.CheckMoneyOrder.csproj.CoreCompileInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.CheckMoneyOrder.AssemblyInfoInputs.cache
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.CheckMoneyOrder.AssemblyInfo.cs
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\plugin.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Views\Configure.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Views\PaymentInfo.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Views\_ViewImports.cshtml
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\logo.jpg
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Nop.Plugin.Payments.CheckMoneyOrder.deps.json
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Nop.Plugin.Payments.CheckMoneyOrder.dll
+D:\Projects\DotNet\SedapExpress\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Nop.Plugin.Payments.CheckMoneyOrder.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.CheckMoneyOrder.csproj.CopyComplete
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.CheckMoneyOrder.dll
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.CheckMoneyOrder.pdb
+D:\Projects\DotNet\SedapExpress\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Debug\netcoreapp2.1\Nop.Plugin.Payments.CheckMoneyOrder.csprojAssemblyReference.cache

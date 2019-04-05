@@ -1,0 +1,42 @@
+div[class^="shaped-"]:not([class^="shaped-triangle-"]) {
+    background: url("img/Sale.png") !important;
+    background-size: 100% !important;
+    top: 15px;
+    right: 1%;
+    left: auto;
+    margin-left: 0px;
+    width: 16%;
+    background-repeat: no-repeat !important;
+    height: 53px;
+}
+        body{background-color:white;}   
+        
+  
+    .page.recently-viewed-products-page .page-title.titlediv {
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
+.page-title.titlediv {
+    float: left;
+    width: 100%;
+    margin-top: 2%;
+    padding-bottom: 6px;
+    background: #eee;
+    margin-bottom: 7px;
+}.page.recently-viewed-products-page .page-title.titlediv h3.TitleText {
+    float: left;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.TitleText {
+    text-align: left;
+    border: none;
+    color: #593e33;
+    margin-left: 9px !important;
+    float: left;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    margin-top: 5px;
+    font-size: 13px;
+} 
